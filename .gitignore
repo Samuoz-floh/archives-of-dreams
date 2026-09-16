@@ -1,0 +1,27 @@
+﻿# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Local environment variables
+.env
+.env.local
+.env.*.local
+
+# Vite local files
+.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# OS files
+.DS_Store
+Thumbs.db

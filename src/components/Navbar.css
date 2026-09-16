@@ -1,0 +1,256 @@
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+}
+
+
+/* =========================
+   SCHOOL BRAND
+========================= */
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.navbar-logo-image {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.navbar-school-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.navbar-school-name span {
+  color: var(--royal-blue);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.navbar-school-name small {
+  color: var(--gold-dark);
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navbar-links a,
+.navbar-links .navbar-link {
+  position: relative;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 0;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links .navbar-link:hover {
+  color: var(--royal-blue);
+}
+
+.navbar-links .navbar-link.active {
+  color: var(--royal-blue);
+}
+
+.navbar-links a::after,
+.navbar-links .navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.2s ease;
+}
+
+.navbar-links a:hover::after,
+.navbar-links .navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-links .navbar-link.active::after {
+  width: 100%;
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.navbar-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--royal-blue);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.navbar-menu-button:hover {
+  background: var(--royal-blue-light);
+  border-color: var(--royal-blue);
+}
+
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+.navbar-mobile-links {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: none;
+  box-shadow: var(--shadow-md);
+  padding: 12px;
+}
+
+.navbar-mobile-links a,
+.navbar-mobile-links .navbar-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 13px 14px;
+  border-radius: var(--radius-sm);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.navbar-mobile-links a:hover,
+.navbar-mobile-links .navbar-link:hover {
+  color: var(--royal-blue);
+  background: var(--royal-blue-light);
+}
+
+.navbar-mobile-links .navbar-link.active {
+  color: var(--royal-blue);
+  background: var(--royal-blue-light);
+  border-left: 3px solid var(--gold);
+}
+
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media (max-width: 850px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-menu-button {
+    display: flex;
+  }
+
+  .navbar-inner {
+    min-height: 72px;
+  }
+
+  .navbar-logo-image {
+    width: 52px;
+    height: 52px;
+  }
+
+  .navbar-school-name span {
+    font-size: 16px;
+  }
+
+  .navbar-school-name small {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 480px) {
+  .navbar-inner {
+    min-height: 68px;
+  }
+
+  .navbar-brand {
+    gap: 8px;
+  }
+
+  .navbar-logo-image {
+    width: 46px;
+    height: 46px;
+  }
+
+  .navbar-school-name span {
+    font-size: 14px;
+  }
+
+  .navbar-school-name small {
+    font-size: 8px;
+    letter-spacing: 0.7px;
+  }
+
+  .navbar-menu-button {
+    width: 40px;
+    height: 40px;
+  }
+}

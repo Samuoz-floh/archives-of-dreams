@@ -1,0 +1,760 @@
+/* =========================================================
+   PROGRAMS PAGE
+   Archives of Dreams Education Center
+========================================================= */
+
+.programs-page {
+  width: 100%;
+  background: var(--off-white);
+  color: var(--text-dark);
+}
+
+
+/* =========================================================
+   PAGE HERO
+========================================================= */
+
+.programs-page-hero {
+  background: var(--royal-blue);
+  color: var(--white);
+  padding: 90px 0;
+}
+
+.programs-page-hero-content {
+  max-width: 800px;
+}
+
+.programs-page-label {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  color: var(--gold-light);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.programs-page-hero h1 {
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: clamp(42px, 6vw, 68px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.programs-page-hero h1 span {
+  display: block;
+  color: var(--gold-light);
+}
+
+.programs-page-hero p {
+  max-width: 650px;
+  margin: 24px 0 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.programs-page-intro {
+  background: var(--white);
+  padding: 85px 0;
+}
+
+.programs-page-intro-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+.programs-page-section-label {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  color: var(--gold-dark);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.programs-page-intro h2 {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--royal-blue);
+
+  font-size: clamp(34px, 4vw, 50px);
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+}
+
+.programs-page-intro h2 span {
+  color: var(--gold-dark);
+}
+
+.programs-page-intro-grid > div:last-child {
+  padding-top: 28px;
+}
+
+.programs-page-intro-grid p {
+  margin: 0 0 18px;
+
+  color: var(--text-muted);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.programs-page-intro-grid p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PROGRAM LIST
+========================================================= */
+
+.programs-page-list {
+  padding: 90px 0;
+
+  background: var(--off-white);
+}
+
+.programs-page-list-header {
+  max-width: 700px;
+
+  margin-bottom: 45px;
+}
+
+.programs-page-list-header h2 {
+  margin: 0;
+
+  color: var(--royal-blue);
+
+  font-size: clamp(34px, 4vw, 50px);
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+}
+
+.programs-page-list-header h2 span {
+  color: var(--gold-dark);
+}
+
+
+/* =========================================================
+   PROGRAM CARDS GRID
+========================================================= */
+
+.programs-page-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   PROGRAM CARD
+========================================================= */
+
+.programs-page-card {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 32px 28px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.programs-page-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  top: -55px;
+  right: -50px;
+
+  background: var(--royal-blue-light);
+
+  border-radius: 50%;
+}
+
+.programs-page-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--gold-light);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.programs-page-card-top {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.programs-page-icon {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--royal-blue);
+
+  background: var(--gold-light);
+
+  border-radius: 16px;
+}
+
+.programs-page-number {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--royal-blue);
+
+  background: var(--royal-blue-light);
+
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.programs-page-subtitle {
+  position: relative;
+
+  z-index: 1;
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--gold-dark);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.programs-page-card h3 {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0;
+
+  color: var(--royal-blue);
+
+  font-size: 26px;
+
+  font-weight: 900;
+
+  line-height: 1.2;
+}
+
+.programs-page-description {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 16px 0 25px;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   PROGRAM POINTS
+========================================================= */
+
+.programs-page-points {
+  position: relative;
+
+  z-index: 1;
+
+  display: grid;
+
+  gap: 12px;
+
+  margin-top: auto;
+
+  padding-top: 5px;
+}
+
+.programs-page-point {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  color: var(--text-dark);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+.programs-page-check {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: var(--royal-blue);
+
+  background: var(--gold-light);
+
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   EDUCATION MESSAGE
+========================================================= */
+
+.programs-page-message {
+  background: var(--white);
+
+  padding: 85px 0;
+}
+
+.programs-page-message-card {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  padding: 42px;
+
+  overflow: hidden;
+
+  background: var(--royal-blue);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-md);
+}
+
+.programs-page-message-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -70px;
+  bottom: -80px;
+
+  background: var(--gold);
+
+  border-radius: 50%;
+
+  opacity: 0.8;
+}
+
+.programs-page-message-icon {
+  position: relative;
+
+  z-index: 1;
+
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: var(--royal-blue);
+
+  background: var(--gold-light);
+
+  border-radius: 50%;
+}
+
+.programs-page-message-content {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 760px;
+}
+
+.programs-page-message-content > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--gold-light);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.programs-page-message-content h2 {
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: clamp(26px, 3vw, 38px);
+
+  font-weight: 900;
+
+  line-height: 1.2;
+}
+
+.programs-page-message-content p {
+  max-width: 680px;
+
+  margin: 15px 0 0;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.programs-page-cta {
+  background: var(--royal-blue);
+
+  padding: 65px 0;
+}
+
+.programs-page-cta-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.programs-page-cta-inner > div {
+  min-width: 0;
+}
+
+.programs-page-cta h2 {
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: 32px;
+
+  font-weight: 900;
+
+  line-height: 1.2;
+}
+
+.programs-page-cta p {
+  margin: 10px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.programs-page-cta-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 48px;
+
+  padding: 0 20px;
+
+  flex-shrink: 0;
+
+  background: var(--gold);
+
+  color: var(--royal-blue-dark);
+
+  text-decoration: none;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.programs-page-cta-button:hover {
+  background: var(--gold-light);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .programs-page-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .programs-page-intro-grid {
+    gap: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .programs-page-intro-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .programs-page-intro-grid > div:last-child {
+    padding-top: 0;
+  }
+
+  .programs-page-message-card {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 32px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .programs-page-hero {
+    padding: 60px 0;
+  }
+
+  .programs-page-hero h1 {
+    font-size: 42px;
+
+    letter-spacing: -1px;
+  }
+
+  .programs-page-hero p {
+    font-size: 15px;
+  }
+
+
+  .programs-page-intro,
+  .programs-page-list,
+  .programs-page-message {
+    padding: 60px 0;
+  }
+
+  .programs-page-intro h2,
+  .programs-page-list-header h2 {
+    font-size: 34px;
+
+    letter-spacing: -1px;
+  }
+
+
+  .programs-page-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .programs-page-card {
+    padding: 28px 24px;
+  }
+
+
+  .programs-page-message-card {
+    padding: 28px 24px;
+  }
+
+  .programs-page-message-content h2 {
+    font-size: 28px;
+  }
+
+
+  .programs-page-cta {
+    padding: 55px 0;
+  }
+
+  .programs-page-cta-inner {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .programs-page-cta h2 {
+    font-size: 28px;
+  }
+
+  .programs-page-cta-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .programs-page-hero h1 {
+    font-size: 36px;
+  }
+
+  .programs-page-intro h2,
+  .programs-page-list-header h2 {
+    font-size: 30px;
+  }
+
+  .programs-page-card {
+    padding: 25px 20px;
+  }
+
+  .programs-page-message-content h2 {
+    font-size: 25px;
+  }
+
+}

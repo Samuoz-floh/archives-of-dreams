@@ -1,0 +1,548 @@
+/* =========================================================
+   PROGRAMS SECTION
+   Archives of Dreams Education Center
+========================================================= */
+
+.programs {
+  background: var(--off-white);
+  padding: 90px 0;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.programs-heading {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 50px;
+}
+
+.programs-heading-text {
+  max-width: 720px;
+}
+
+.programs .section-label {
+  display: inline-block;
+
+  color: var(--gold-dark);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 14px;
+}
+
+.programs-heading h2 {
+  margin: 0;
+
+  color: var(--royal-blue);
+
+  font-size: clamp(36px, 4vw, 52px);
+
+  font-weight: 900;
+
+  line-height: 1.08;
+
+  letter-spacing: -1.5px;
+}
+
+.programs-heading h2 span {
+  color: var(--gold-dark);
+}
+
+.programs-heading p {
+  max-width: 650px;
+
+  margin: 18px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   HEADING LINK
+========================================================= */
+
+.programs-heading-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+
+  color: var(--royal-blue);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  padding-bottom: 5px;
+
+  border-bottom: 2px solid var(--gold);
+
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.programs-heading-link:hover {
+  color: var(--gold-dark);
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   PROGRAM GRID
+========================================================= */
+
+.programs-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   PROGRAM CARD
+========================================================= */
+
+.program-card {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 32px 28px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.program-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 95px;
+  height: 95px;
+
+  top: -45px;
+  right: -35px;
+
+  background: var(--royal-blue-light);
+
+  border-radius: 50%;
+
+  transition: transform 0.25s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--gold-light);
+
+  box-shadow: var(--shadow-md);
+}
+
+.program-card:hover::after {
+  transform: scale(1.25);
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.program-card-top {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.program-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--royal-blue);
+
+  background: var(--gold-light);
+
+  border-radius: 16px;
+}
+
+.program-number {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  color: var(--royal-blue);
+
+  background: var(--royal-blue-light);
+
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.program-card h3 {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0 0 12px;
+
+  color: var(--royal-blue);
+
+  font-size: 23px;
+
+  font-weight: 900;
+
+  line-height: 1.2;
+}
+
+.program-card p {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CARD LINK
+========================================================= */
+
+.program-card-link {
+  position: relative;
+
+  z-index: 1;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  align-self: flex-start;
+
+  margin-top: auto;
+  padding-top: 28px;
+
+  color: var(--royal-blue);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.program-card-link:hover {
+  color: var(--gold-dark);
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   BOTTOM MESSAGE
+========================================================= */
+
+.programs-bottom {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 35px;
+
+  padding: 25px 28px;
+
+  background: var(--royal-blue);
+
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-md);
+}
+
+.programs-bottom-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: var(--royal-blue);
+
+  background: var(--gold-light);
+
+  border-radius: 50%;
+}
+
+.programs-bottom > div:nth-child(2) {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  min-width: 0;
+
+  flex: 1;
+}
+
+.programs-bottom strong {
+  color: var(--white);
+
+  font-size: 16px;
+
+  font-weight: 800;
+}
+
+.programs-bottom span {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.programs-bottom-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 46px;
+
+  padding: 0 18px;
+
+  flex-shrink: 0;
+
+  background: var(--gold);
+
+  color: var(--royal-blue-dark);
+
+  text-decoration: none;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.programs-bottom-button:hover {
+  background: var(--gold-light);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .programs {
+    padding: 75px 0;
+  }
+
+  .programs-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .programs-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .programs-bottom {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .programs-bottom-button {
+    margin-left: 70px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .programs {
+    padding: 60px 0;
+  }
+
+  .programs-heading {
+    margin-bottom: 35px;
+  }
+
+  .programs-heading h2 {
+    font-size: 36px;
+
+    letter-spacing: -1px;
+  }
+
+  .programs-heading p {
+    font-size: 15px;
+  }
+
+  .programs-heading-link {
+    font-size: 13px;
+  }
+
+  .programs-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .program-card {
+    padding: 28px 24px;
+  }
+
+  .program-card h3 {
+    font-size: 22px;
+  }
+
+  .programs-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 24px;
+  }
+
+  .programs-bottom-button {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .programs-heading h2 {
+    font-size: 32px;
+  }
+
+  .program-card {
+    padding: 25px 20px;
+  }
+
+  .program-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+}

@@ -1,0 +1,265 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Baby,
+  BookOpen,
+  GraduationCap,
+  HeartHandshake,
+  ArrowRight,
+} from "lucide-react";
+import "./ProgramsPage.css";
+
+function ProgramsPage() {
+  const programs = [
+    {
+      number: "01",
+      icon: Baby,
+      title: "Baby Care",
+      subtitle: "A gentle beginning",
+      description:
+        "A caring and nurturing environment for young children as they begin their early learning journey.",
+      points: [
+        "Safe and caring environment",
+        "Early learning experiences",
+        "Encouragement and support",
+      ],
+    },
+    {
+      number: "02",
+      icon: BookOpen,
+      title: "Pre-School",
+      subtitle: "Building strong foundations",
+      description:
+        "A learning environment where children can develop curiosity, creativity, confidence and essential early skills.",
+      points: [
+        "Early childhood learning",
+        "Curiosity and creativity",
+        "Confidence and social development",
+      ],
+    },
+    {
+      number: "03",
+      icon: GraduationCap,
+      title: "Primary",
+      subtitle: "Growing knowledge and confidence",
+      description:
+        "Supporting children as they build knowledge, develop their abilities and prepare for the next stages of learning.",
+      points: [
+        "Knowledge and understanding",
+        "Development of abilities",
+        "Confidence for the future",
+      ],
+    },
+  ];
+
+  return (
+    <main className="programs-page">
+
+      {/* PAGE HERO */}
+      <section className="programs-page-hero">
+        <div className="container">
+          <div className="programs-page-hero-content">
+
+            <span className="programs-page-label">
+              OUR PROGRAMS
+            </span>
+
+            <h1>
+              Learning that grows
+              <span>with every child.</span>
+            </h1>
+
+            <p>
+              Discover learning opportunities designed to support
+              children at different stages of their educational
+              journey.
+            </p>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* INTRODUCTION */}
+      <section className="programs-page-intro">
+        <div className="container">
+
+          <div className="programs-page-intro-grid">
+
+            <div>
+              <span className="programs-page-section-label">
+                SUPPORTING EVERY STAGE
+              </span>
+
+              <h2>
+                A learning journey built
+                <span> around the child.</span>
+              </h2>
+            </div>
+
+            <div>
+              <p>
+                Archives of Dreams Education Center provides
+                learning opportunities across Baby Care,
+                Pre-School and Primary education.
+              </p>
+
+              <p>
+                Each stage is presented as part of a child's
+                continuing journey of learning, growth and
+                discovery.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* PROGRAMS */}
+      <section className="programs-page-list">
+        <div className="container">
+
+          <div className="programs-page-list-header">
+            <span className="programs-page-section-label">
+              WHAT WE OFFER
+            </span>
+
+            <h2>
+              Explore our
+              <span> programs.</span>
+            </h2>
+          </div>
+
+
+          <div className="programs-page-grid">
+
+            {programs.map((program) => {
+              const Icon = program.icon;
+
+              return (
+                <article
+                  className="programs-page-card"
+                  key={program.title}
+                >
+
+                  <div className="programs-page-card-top">
+
+                    <div className="programs-page-icon">
+                      <Icon size={30} />
+                    </div>
+
+                    <span className="programs-page-number">
+                      {program.number}
+                    </span>
+
+                  </div>
+
+                  <span className="programs-page-subtitle">
+                    {program.subtitle}
+                  </span>
+
+                  <h3>{program.title}</h3>
+
+                  <p className="programs-page-description">
+                    {program.description}
+                  </p>
+
+                  <div className="programs-page-points">
+
+                    {program.points.map((point) => (
+                      <div
+                        className="programs-page-point"
+                        key={point}
+                      >
+                        <span className="programs-page-check">
+                          ✓
+                        </span>
+
+                        <span>{point}</span>
+                      </div>
+                    ))}
+
+                  </div>
+
+                </article>
+              );
+            })}
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* EDUCATION MESSAGE */}
+      <section className="programs-page-message">
+        <div className="container">
+
+          <div className="programs-page-message-card">
+
+            <div className="programs-page-message-icon">
+              <HeartHandshake size={30} />
+            </div>
+
+            <div className="programs-page-message-content">
+
+              <span>
+                EDUCATION IS THE KEY.
+              </span>
+
+              <h2>
+                Every child deserves the opportunity
+                to learn, grow and dream.
+              </h2>
+
+              <p>
+                We believe that a supportive learning environment
+                can help children develop their abilities and
+                approach the future with confidence.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* CTA */}
+      <section className="programs-page-cta">
+        <div className="container">
+
+          <div className="programs-page-cta-inner">
+
+            <div>
+              <h2>
+                Ready to begin the journey?
+              </h2>
+
+              <p>
+                Learn more about admissions at Archives of
+                Dreams Education Center.
+              </p>
+            </div>
+
+            <Link
+              to="/admissions"
+              className="programs-page-cta-button"
+            >
+              Explore Admissions
+              <ArrowRight size={18} />
+            </Link>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  );
+}
+
+export default ProgramsPage;

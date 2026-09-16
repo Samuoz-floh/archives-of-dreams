@@ -1,0 +1,26 @@
+:root {
+  --royal-blue: #123c88;
+  --royal-blue-dark: #09285f;
+  --royal-blue-light: #eaf1ff;
+
+  --gold: #d4a72c;
+  --gold-light: #f5df8b;
+  --gold-dark: #a77c08;
+
+  --white: #ffffff;
+  --off-white: #f8fafc;
+
+  --text-dark: #172033;
+  --text-muted: #667085;
+
+  --border: #e4e7ec;
+
+  --shadow-sm: 0 4px 12px rgba(18, 60, 136, 0.08);
+  --shadow-md: 0 12px 30px rgba(18, 60, 136, 0.12);
+
+  --container: 1180px;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+}

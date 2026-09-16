@@ -1,0 +1,341 @@
+/* =========================================================
+   FOOTER
+   Archives of Dreams Education Center
+========================================================= */
+
+.footer {
+  background: var(--royal-blue-dark);
+  color: var(--white);
+  padding: 70px 0 25px;
+}
+
+
+/* =========================================================
+   FOOTER GRID
+========================================================= */
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.8fr 0.8fr 1.25fr;
+  gap: 45px;
+  padding-bottom: 50px;
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+========================================================= */
+
+.footer-brand {
+  min-width: 0;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer-logo-mark {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--gold);
+  color: var(--royal-blue-dark);
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.footer-logo > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-logo strong {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.footer-logo span {
+  color: var(--gold-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-tagline {
+  margin: 22px 0 8px;
+  color: var(--gold-light);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.footer-description {
+  max-width: 320px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+========================================================= */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.footer-column h3 {
+  margin: 0 0 9px;
+  color: var(--gold-light);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.5;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--white);
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   FOOTER CONTACT
+========================================================= */
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+
+.footer-contact-item > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--gold-light);
+}
+
+.footer-contact-item > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-contact-item strong {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.footer-contact-item span,
+.footer-contact-item a {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.footer-contact-item a {
+  text-decoration: none;
+}
+
+.footer-contact-item a:hover {
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   SUPPORT BANNER
+========================================================= */
+
+.footer-support {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.footer-support > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer-support strong {
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.footer-support span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.footer-support > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 17px;
+  flex-shrink: 0;
+  background: var(--gold);
+  color: var(--royal-blue-dark);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-support > a:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.footer-bottom p:last-child {
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 35px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .footer {
+    padding: 55px 0 22px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 35px;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-support {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 22px;
+  }
+
+  .footer-support > a {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 25px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .footer {
+    padding-top: 48px;
+  }
+
+  .footer-grid {
+    gap: 28px;
+  }
+
+  .footer-logo-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-support {
+    padding: 20px;
+  }
+
+}
