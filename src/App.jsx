@@ -28,8 +28,15 @@ function Home() {
 }
 
 function App() {
+  const isGitHubPages =
+    window.location.hostname.endsWith("github.io");
+
+  const basename = isGitHubPages
+    ? "/archives-of-dreams"
+    : "/";
+
   return (
-    <BrowserRouter basename="/archives-of-dreams">
+    <BrowserRouter basename={basename}>
       <Navbar />
 
       <Routes>
