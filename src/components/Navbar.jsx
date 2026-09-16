@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "./Navbar.css";
 
@@ -10,21 +10,13 @@ function Navbar() {
     setMenuOpen(false);
   };
 
-  const navLinkClass = ({ isActive }) =>
-    isActive ? "navbar-link active" : "navbar-link";
-
   return (
     <header className="navbar">
       <div className="container navbar-inner">
 
-        {/* SCHOOL BRAND */}
-        <Link
-          to="/"
-          className="navbar-brand"
-          onClick={closeMenu}
-        >
+        <Link to="/" className="navbar-brand" onClick={closeMenu}>
           <img
-            src="/school-logo.png"
+            src={`${import.meta.env.BASE_URL}school-logo.png`}
             alt="Archives of Dreams Education Center logo"
             className="navbar-logo-image"
           />
@@ -35,63 +27,32 @@ function Navbar() {
           </div>
         </Link>
 
-
-        {/* DESKTOP NAVIGATION */}
         <nav className="navbar-links">
-
-          <NavLink
-            to="/"
-            end
-            className={navLinkClass}
-            onClick={closeMenu}
-          >
+          <Link to="/" onClick={closeMenu}>
             Home
-          </NavLink>
+          </Link>
 
-          <NavLink
-            to="/about"
-            className={navLinkClass}
-            onClick={closeMenu}
-          >
+          <Link to="/about" onClick={closeMenu}>
             About
-          </NavLink>
+          </Link>
 
-          <NavLink
-            to="/programs"
-            className={navLinkClass}
-            onClick={closeMenu}
-          >
+          <Link to="/programs" onClick={closeMenu}>
             Programs
-          </NavLink>
+          </Link>
 
-          <NavLink
-            to="/admissions"
-            className={navLinkClass}
-            onClick={closeMenu}
-          >
+          <Link to="/admissions" onClick={closeMenu}>
             Admissions
-          </NavLink>
+          </Link>
 
-          <NavLink
-            to="/donate"
-            className={navLinkClass}
-            onClick={closeMenu}
-          >
+          <Link to="/donate" onClick={closeMenu}>
             Donate
-          </NavLink>
+          </Link>
 
-          <a
-            href="/#contact"
-            className="navbar-link"
-            onClick={closeMenu}
-          >
+          <Link to="/#contact" onClick={closeMenu}>
             Contact Us
-          </a>
-
+          </Link>
         </nav>
 
-
-        {/* MOBILE MENU BUTTON */}
         <button
           className="navbar-menu-button"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -105,60 +66,31 @@ function Navbar() {
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
 
-
-        {/* MOBILE NAVIGATION */}
         {menuOpen && (
           <nav className="navbar-mobile-links">
-
-            <NavLink
-              to="/"
-              end
-              className={navLinkClass}
-              onClick={closeMenu}
-            >
+            <Link to="/" onClick={closeMenu}>
               Home
-            </NavLink>
+            </Link>
 
-            <NavLink
-              to="/about"
-              className={navLinkClass}
-              onClick={closeMenu}
-            >
+            <Link to="/about" onClick={closeMenu}>
               About
-            </NavLink>
+            </Link>
 
-            <NavLink
-              to="/programs"
-              className={navLinkClass}
-              onClick={closeMenu}
-            >
+            <Link to="/programs" onClick={closeMenu}>
               Programs
-            </NavLink>
+            </Link>
 
-            <NavLink
-              to="/admissions"
-              className={navLinkClass}
-              onClick={closeMenu}
-            >
+            <Link to="/admissions" onClick={closeMenu}>
               Admissions
-            </NavLink>
+            </Link>
 
-            <NavLink
-              to="/donate"
-              className={navLinkClass}
-              onClick={closeMenu}
-            >
+            <Link to="/donate" onClick={closeMenu}>
               Donate
-            </NavLink>
+            </Link>
 
-            <a
-              href="/#contact"
-              className="navbar-link"
-              onClick={closeMenu}
-            >
+            <Link to="/#contact" onClick={closeMenu}>
               Contact Us
-            </a>
-
+            </Link>
           </nav>
         )}
 

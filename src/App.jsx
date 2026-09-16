@@ -29,7 +29,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/archives-of-dreams">
       <Navbar />
 
       <Routes>
