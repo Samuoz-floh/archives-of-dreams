@@ -35,20 +35,32 @@
    RESET
 ========================================================= */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   margin: 0;
   padding: 0;
+
+  width: 100%;
+  max-width: 100%;
+
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   padding: 0;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 
   background: var(--white);
   color: var(--text-dark);
@@ -66,7 +78,14 @@ body {
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+
+  overflow-x: hidden;
 }
+
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
 
 button,
 input,
@@ -79,14 +98,35 @@ button {
   border: 0;
 }
 
-img {
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+img,
+svg,
+video,
+canvas {
   max-width: 100%;
+}
+
+img {
   height: auto;
 }
+
+
+/* =========================================================
+   LINKS
+========================================================= */
 
 a {
   color: inherit;
 }
+
+
+/* =========================================================
+   TEXT
+========================================================= */
 
 h1,
 h2,
@@ -95,6 +135,7 @@ h4,
 h5,
 h6,
 p {
+  max-width: 100%;
   overflow-wrap: break-word;
 }
 
@@ -105,7 +146,11 @@ p {
 
 #root {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 100vh;
+
+  overflow-x: clip;
 }
 
 
@@ -114,10 +159,9 @@ p {
 ========================================================= */
 
 .container {
-  width: min(
-    calc(100% - 40px),
-    var(--container)
-  );
+  width: calc(100% - 40px);
+  max-width: var(--container);
+  min-width: 0;
 
   margin-left: auto;
   margin-right: auto;
@@ -130,6 +174,8 @@ p {
 
 .section {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .section-label {
@@ -181,14 +227,9 @@ html {
 ========================================================= */
 
 @media (max-width: 900px) {
-
   .container {
-    width: min(
-      calc(100% - 36px),
-      var(--container)
-    );
+    width: calc(100% - 36px);
   }
-
 }
 
 
@@ -197,22 +238,17 @@ html {
 ========================================================= */
 
 @media (max-width: 600px) {
-
   html {
     scroll-padding-top: 70px;
   }
 
   .container {
-    width: min(
-      calc(100% - 32px),
-      var(--container)
-    );
+    width: calc(100% - 32px);
   }
 
   body {
     font-size: 15px;
   }
-
 }
 
 
@@ -221,12 +257,7 @@ html {
 ========================================================= */
 
 @media (max-width: 400px) {
-
   .container {
-    width: min(
-      calc(100% - 28px),
-      var(--container)
-    );
+    width: calc(100% - 28px);
   }
-
 }
