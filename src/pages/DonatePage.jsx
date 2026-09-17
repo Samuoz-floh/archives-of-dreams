@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   Shirt,
   Footprints,
   Utensils,
   Gamepad2,
   FileText,
+  GraduationCap,
+  BookOpen,
   HeartHandshake,
   ArrowRight,
 } from "lucide-react";
@@ -43,6 +44,18 @@ function DonatePage() {
       description:
         "Help provide essential learning materials that children can use throughout their education.",
     },
+    {
+      icon: GraduationCap,
+      title: "Tuition Fees",
+      description:
+        "Help support a child's tuition fees and provide continued access to education and learning.",
+    },
+    {
+      icon: BookOpen,
+      title: "Full Fees",
+      description:
+        "Support the full school fees required to help a child continue their education and participate fully in school.",
+    },
   ];
 
   return (
@@ -65,7 +78,7 @@ function DonatePage() {
             <p>
               Your support can help create a caring learning
               environment where children have access to important
-              school and everyday needs.
+              school, education and everyday needs.
             </p>
 
             <div className="donate-page-hero-actions">
@@ -111,8 +124,8 @@ function DonatePage() {
               <p>
                 Children need more than a classroom to thrive.
                 Access to essential school supplies, food,
-                clothing and opportunities for play can support
-                their learning experience.
+                clothing, educational support and opportunities
+                for play can support their learning experience.
               </p>
 
               <p>
@@ -146,9 +159,9 @@ function DonatePage() {
             </h2>
 
             <p>
-              Support can be directed toward important items
-              that contribute to children's school experience
-              and wellbeing.
+              Support can be directed toward important items,
+              educational costs and resources that contribute
+              to children's school experience and wellbeing.
             </p>
 
           </div>
@@ -204,8 +217,9 @@ function DonatePage() {
 
               <p>
                 Whether through school supplies, food, play
-                materials or other support, your contribution
-                can become part of a child's learning journey.
+                materials, tuition fees, full fees or other
+                support, your contribution can become part of
+                a child's learning journey.
               </p>
 
             </div>
