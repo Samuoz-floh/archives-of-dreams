@@ -1,48 +1,53 @@
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+   Archives of Dreams Education Center
+========================================================= */
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
   background: rgba(255, 255, 255, 0.97);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar-inner {
+  position: relative;
   min-height: 78px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  position: relative;
 }
 
-
-/* =========================
+/* =========================================================
    SCHOOL BRAND
-========================= */
+========================================================= */
 
 .navbar-brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  text-decoration: none;
   min-width: 0;
+  max-width: 100%;
+  text-decoration: none;
 }
 
 .navbar-logo-image {
   width: 58px;
   height: 58px;
-  object-fit: contain;
-  display: block;
   flex-shrink: 0;
+  display: block;
+  object-fit: contain;
 }
 
 .navbar-school-name {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   line-height: 1.1;
@@ -53,21 +58,21 @@
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.3px;
+  overflow-wrap: anywhere;
 }
 
 .navbar-school-name small {
+  margin-top: 4px;
   color: var(--gold-dark);
   font-size: 11px;
   font-weight: 700;
-  margin-top: 4px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-
-/* =========================
+/* =========================================================
    DESKTOP NAVIGATION
-========================= */
+========================================================= */
 
 .navbar-links {
   display: flex;
@@ -78,11 +83,12 @@
 .navbar-links a,
 .navbar-links .navbar-link {
   position: relative;
+  padding: 8px 0;
   color: var(--text-dark);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  padding: 8px 0;
+  white-space: nowrap;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
@@ -90,10 +96,6 @@
 
 .navbar-links a:hover,
 .navbar-links .navbar-link:hover {
-  color: var(--royal-blue);
-}
-
-.navbar-links .navbar-link.active {
   color: var(--royal-blue);
 }
 
@@ -114,14 +116,17 @@
   width: 100%;
 }
 
+.navbar-links .navbar-link.active {
+  color: var(--royal-blue);
+}
+
 .navbar-links .navbar-link.active::after {
   width: 100%;
 }
 
-
-/* =========================
+/* =========================================================
    MOBILE MENU BUTTON
-========================= */
+========================================================= */
 
 .navbar-menu-button {
   display: none;
@@ -129,6 +134,8 @@
   justify-content: center;
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
+  padding: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--white);
@@ -145,33 +152,42 @@
   border-color: var(--royal-blue);
 }
 
+.navbar-menu-button:focus-visible,
+.navbar-links a:focus-visible,
+.navbar-mobile-links a:focus-visible,
+.navbar-brand:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
 
-/* =========================
+/* =========================================================
    MOBILE NAVIGATION
-========================= */
+========================================================= */
 
 .navbar-mobile-links {
   position: absolute;
   top: calc(100% + 1px);
   left: 0;
   right: 0;
+  z-index: 1001;
   display: flex;
   flex-direction: column;
+  padding: 12px;
   background: var(--white);
   border: 1px solid var(--border);
   border-top: none;
   box-shadow: var(--shadow-md);
-  padding: 12px;
 }
 
 .navbar-mobile-links a,
 .navbar-mobile-links .navbar-link {
+  display: block;
+  padding: 13px 14px;
+  border-radius: var(--radius-sm);
   color: var(--text-dark);
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
-  padding: 13px 14px;
-  border-radius: var(--radius-sm);
   transition:
     background 0.2s ease,
     color 0.2s ease;
@@ -189,10 +205,9 @@
   border-left: 3px solid var(--gold);
 }
 
-
-/* =========================
+/* =========================================================
    TABLET / MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 850px) {
   .navbar-links {
@@ -221,14 +236,14 @@
   }
 }
 
-
-/* =========================
+/* =========================================================
    SMALL PHONES
-========================= */
+========================================================= */
 
 @media (max-width: 480px) {
   .navbar-inner {
     min-height: 68px;
+    gap: 12px;
   }
 
   .navbar-brand {
@@ -252,5 +267,21 @@
   .navbar-menu-button {
     width: 40px;
     height: 40px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-links a,
+  .navbar-links .navbar-link,
+  .navbar-links a::after,
+  .navbar-links .navbar-link::after,
+  .navbar-menu-button,
+  .navbar-mobile-links a,
+  .navbar-mobile-links .navbar-link {
+    transition: none;
   }
 }

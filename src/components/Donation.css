@@ -1,14 +1,39 @@
+/* =========================================================
+   DONATION SECTION
+   Archives of Dreams Education Center
+========================================================= */
+
 .donation {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
   background: var(--royal-blue-dark);
   color: var(--white);
-  overflow: hidden;
 }
 
+/* =========================================================
+   DONATION WRAPPER
+========================================================= */
+
 .donation-wrapper {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   align-items: center;
   gap: 70px;
+}
+
+/* =========================================================
+   DONATION CONTENT
+========================================================= */
+
+.donation-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .donation-content .section-label {
@@ -18,8 +43,11 @@
 .donation-content h2 {
   max-width: 600px;
   margin-bottom: 22px;
+  color: var(--white);
   font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.08;
   letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
 }
 
 .donation-content h2 span {
@@ -35,6 +63,10 @@
   line-height: 1.8;
 }
 
+/* =========================================================
+   DONATION BUTTON
+========================================================= */
+
 .donation-button {
   display: inline-flex;
   align-items: center;
@@ -46,17 +78,31 @@
   background: var(--gold);
   color: var(--royal-blue-dark);
   font-weight: 800;
+  text-decoration: none;
   transition:
     transform 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .donation-button:hover {
   transform: translateY(-2px);
   background: var(--gold-light);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
 }
 
+.donation-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   DONATION CARD
+========================================================= */
+
 .donation-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   padding: 32px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
@@ -64,9 +110,14 @@
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
 }
 
+/* =========================================================
+   DONATION CARD HEADER
+========================================================= */
+
 .donation-card-header {
   display: flex;
   align-items: center;
+  min-width: 0;
   gap: 16px;
   padding-bottom: 24px;
   margin-bottom: 8px;
@@ -76,7 +127,7 @@
 .donation-heart {
   width: 50px;
   height: 50px;
-  flex-shrink: 0;
+  flex: 0 0 50px;
   display: grid;
   place-items: center;
   border-radius: 14px;
@@ -84,24 +135,43 @@
   color: var(--royal-blue-dark);
 }
 
+.donation-card-header > div:last-child {
+  min-width: 0;
+}
+
 .donation-card-header h3 {
+  color: var(--white);
   font-size: 1.3rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
 }
 
 .donation-card-header p {
   margin-top: 4px;
   color: rgba(255, 255, 255, 0.58);
   font-size: 0.82rem;
+  line-height: 1.5;
 }
 
+/* =========================================================
+   DONATION LIST
+========================================================= */
+
 .donation-list {
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
+/* =========================================================
+   DONATION ITEM
+========================================================= */
+
 .donation-item {
   display: flex;
   align-items: flex-start;
+  min-width: 0;
   gap: 16px;
   padding: 19px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -115,7 +185,7 @@
 .donation-item-icon {
   width: 42px;
   height: 42px;
-  flex-shrink: 0;
+  flex: 0 0 42px;
   display: grid;
   place-items: center;
   border-radius: 11px;
@@ -123,34 +193,182 @@
   color: var(--gold-light);
 }
 
+.donation-item > div:last-child {
+  min-width: 0;
+}
+
 .donation-item h4 {
   margin-bottom: 4px;
+  color: var(--white);
   font-size: 0.98rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .donation-item p {
   color: rgba(255, 255, 255, 0.58);
   font-size: 0.8rem;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.donation-button:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 900px) {
   .donation-wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 45px;
   }
 
   .donation-content {
     max-width: 700px;
   }
+
+  .donation-card {
+    max-width: 760px;
+  }
 }
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 600px) {
+  .donation-wrapper {
+    gap: 35px;
+  }
+
+  .donation-content h2 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .donation-content > p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .donation-button {
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 18px;
+  }
+
   .donation-card {
     padding: 24px;
+    border-radius: var(--radius-md);
+  }
+
+  .donation-card-header {
+    gap: 12px;
+    padding-bottom: 20px;
+  }
+
+  .donation-heart {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    border-radius: 12px;
+  }
+
+  .donation-card-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .donation-card-header p {
+    font-size: 0.78rem;
   }
 
   .donation-item {
     gap: 12px;
+    padding: 17px 0;
+  }
+
+  .donation-item-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .donation-item h4 {
+    font-size: 0.94rem;
+  }
+
+  .donation-item p {
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+  .donation-card {
+    padding: 20px;
+  }
+
+  .donation-card-header {
+    align-items: flex-start;
+  }
+
+  .donation-item {
+    gap: 10px;
+  }
+
+  .donation-item-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+  .donation-card {
+    padding: 17px;
+  }
+
+  .donation-card-header {
+    gap: 9px;
+  }
+
+  .donation-heart {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .donation-item-icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .donation-item {
+    gap: 8px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .donation-button {
+    transition: none;
   }
 }

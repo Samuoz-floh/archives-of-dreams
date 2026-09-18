@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Heart,
   BookOpen,
@@ -36,15 +37,18 @@ function AboutPage() {
   return (
     <main className="about-page">
 
-      {/* Hero */}
-      <section className="about-page-hero">
+      {/* HERO */}
+      <section
+        className="about-page-hero"
+        aria-labelledby="about-page-hero-heading"
+      >
         <div className="container">
 
           <span className="section-label">
             ABOUT US
           </span>
 
-          <h1>
+          <h1 id="about-page-hero-heading">
             Where every child's
             <span> dream can begin.</span>
           </h1>
@@ -59,8 +63,12 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
-      <section className="about-story section">
+
+      {/* STORY */}
+      <section
+        className="about-story section"
+        aria-labelledby="about-story-heading"
+      >
         <div className="container">
 
           <div className="about-story-grid">
@@ -71,7 +79,7 @@ function AboutPage() {
                 OUR STORY
               </span>
 
-              <h2>
+              <h2 id="about-story-heading">
                 Education is the
                 <span> key.</span>
               </h2>
@@ -97,9 +105,9 @@ function AboutPage() {
 
               <p>
                 From early childhood through primary education,
-                we aim to provide a strong foundation that helps
-                children prepare for the opportunities and
-                responsibilities of the future.
+                alongside practical Skill Development Programs,
+                we aim to provide opportunities that help learners
+                build a strong foundation for the future.
               </p>
 
             </div>
@@ -109,9 +117,12 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="about-values section">
 
+      {/* VALUES */}
+      <section
+        className="about-values section"
+        aria-labelledby="about-values-heading"
+      >
         <div className="container">
 
           <div className="about-section-heading">
@@ -120,7 +131,7 @@ function AboutPage() {
               WHAT WE VALUE
             </span>
 
-            <h2>
+            <h2 id="about-values-heading">
               The principles that
               <span> guide us.</span>
             </h2>
@@ -144,7 +155,10 @@ function AboutPage() {
                   key={value.title}
                 >
 
-                  <div className="about-value-icon">
+                  <div
+                    className="about-value-icon"
+                    aria-hidden="true"
+                  >
                     <Icon size={26} />
                   </div>
 
@@ -163,17 +177,22 @@ function AboutPage() {
           </div>
 
         </div>
-
       </section>
 
-      {/* Educational Approach */}
-      <section className="about-approach section">
 
+      {/* EDUCATIONAL APPROACH */}
+      <section
+        className="about-approach section"
+        aria-labelledby="about-approach-heading"
+      >
         <div className="container">
 
           <div className="about-approach-card">
 
-            <div className="about-approach-icon">
+            <div
+              className="about-approach-icon"
+              aria-hidden="true"
+            >
               <Sparkles size={28} />
             </div>
 
@@ -183,7 +202,7 @@ function AboutPage() {
                 OUR APPROACH
               </span>
 
-              <h2>
+              <h2 id="about-approach-heading">
                 Helping children
                 <span> discover their potential.</span>
               </h2>
@@ -196,8 +215,8 @@ function AboutPage() {
 
               <p>
                 Our learning environment aims to combine education,
-                care, creativity, positive relationships, and
-                character development.
+                care, creativity, positive relationships, character
+                development, and practical skill development.
               </p>
 
             </div>
@@ -205,12 +224,14 @@ function AboutPage() {
           </div>
 
         </div>
-
       </section>
 
-      {/* CTA */}
-      <section className="about-page-cta">
 
+      {/* CTA */}
+      <section
+        className="about-page-cta"
+        aria-labelledby="about-page-cta-heading"
+      >
         <div className="container">
 
           <div className="about-cta-card">
@@ -221,7 +242,7 @@ function AboutPage() {
                 JOIN OUR JOURNEY
               </span>
 
-              <h2>
+              <h2 id="about-page-cta-heading">
                 Let's build brighter
                 <span> futures together.</span>
               </h2>
@@ -233,18 +254,20 @@ function AboutPage() {
 
             </div>
 
-            <a
-              href="/#contact"
+            <Link
+              to="/#contact"
               className="about-cta-button"
             >
               Contact the School
-              <ArrowRight size={18} />
-            </a>
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
+            </Link>
 
           </div>
 
         </div>
-
       </section>
 
     </main>

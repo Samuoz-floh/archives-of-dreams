@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Shirt,
   Footprints,
@@ -60,19 +61,16 @@ function DonatePage() {
 
   return (
     <main className="donate-page">
-
-      {/* HERO */}
       <section className="donate-page-hero">
         <div className="container">
           <div className="donate-page-hero-content">
-
             <span className="donate-page-label">
               SUPPORT OUR CHILDREN
             </span>
 
             <h1>
               Give a child
-              <span>something to dream about.</span>
+              <span> something to dream about.</span>
             </h1>
 
             <p>
@@ -82,33 +80,31 @@ function DonatePage() {
             </p>
 
             <div className="donate-page-hero-actions">
-
               <a
                 href="#how-to-help"
                 className="donate-page-primary-button"
               >
                 See How You Can Help
-                <ArrowRight size={18} />
+                <ArrowRight
+                  size={18}
+                  aria-hidden="true"
+                />
               </a>
 
-              <a
-                href="/#contact"
+              <Link
+                to="/#contact"
                 className="donate-page-secondary-button"
               >
                 Contact the School
-              </a>
-
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* INTRODUCTION */}
       <section className="donate-page-intro">
         <div className="container">
-
           <div className="donate-page-intro-grid">
-
             <div>
               <span className="donate-page-section-label">
                 WHY SUPPORT MATTERS
@@ -134,26 +130,22 @@ function DonatePage() {
                 learn, grow and participate in school life.
               </p>
             </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* AREAS OF NEED */}
       <section
         className="donate-page-needs"
         id="how-to-help"
+        aria-labelledby="donate-needs-heading"
       >
         <div className="container">
-
           <div className="donate-page-section-header">
-
             <span className="donate-page-section-label">
               AREAS OF NEED
             </span>
 
-            <h2>
+            <h2 id="donate-needs-heading">
               You can help provide
               <span> what children need.</span>
             </h2>
@@ -163,11 +155,9 @@ function DonatePage() {
               educational costs and resources that contribute
               to children's school experience and wellbeing.
             </p>
-
           </div>
 
           <div className="donate-page-needs-grid">
-
             {needs.map((need) => {
               const Icon = need.icon;
 
@@ -176,39 +166,35 @@ function DonatePage() {
                   className="donate-page-need-card"
                   key={need.title}
                 >
-
-                  <div className="donate-page-need-icon">
+                  <div
+                    className="donate-page-need-icon"
+                    aria-hidden="true"
+                  >
                     <Icon size={28} />
                   </div>
 
                   <h3>{need.title}</h3>
 
                   <p>{need.description}</p>
-
                 </article>
               );
             })}
-
           </div>
-
         </div>
       </section>
 
-      {/* SUPPORT MESSAGE */}
       <section className="donate-page-message">
         <div className="container">
-
           <div className="donate-page-message-card">
-
-            <div className="donate-page-message-icon">
+            <div
+              className="donate-page-message-icon"
+              aria-hidden="true"
+            >
               <HeartHandshake size={30} />
             </div>
 
             <div className="donate-page-message-content">
-
-              <span>
-                EVERY CONTRIBUTION MATTERS
-              </span>
+              <span>EVERY CONTRIBUTION MATTERS</span>
 
               <h2>
                 Help create opportunities for children to learn,
@@ -221,20 +207,14 @@ function DonatePage() {
                 support, your contribution can become part of
                 a child's learning journey.
               </p>
-
             </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* CONTACT CTA */}
       <section className="donate-page-cta">
         <div className="container">
-
           <div className="donate-page-cta-inner">
-
             <div>
               <h2>
                 Would you like to support the children?
@@ -246,19 +226,19 @@ function DonatePage() {
               </p>
             </div>
 
-            <a
-              href="/#contact"
+            <Link
+              to="/#contact"
               className="donate-page-cta-button"
             >
               Contact Us
-              <ArrowRight size={18} />
-            </a>
-
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
+            </Link>
           </div>
-
         </div>
       </section>
-
     </main>
   );
 }

@@ -11,7 +11,11 @@ import "./About.css";
 
 function About() {
   return (
-    <section className="about section" id="about">
+    <section
+      className="about section"
+      id="about"
+      aria-labelledby="about-heading"
+    >
       <div className="container">
 
         {/* SECTION INTRO */}
@@ -22,7 +26,7 @@ function About() {
               ABOUT OUR SCHOOL
             </span>
 
-            <h2>
+            <h2 id="about-heading">
               Where every child's
               <span> dream can begin.</span>
             </h2>
@@ -40,7 +44,10 @@ function About() {
             className="about-heading-link"
           >
             Learn More About Us
-            <ArrowRight size={18} />
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+            />
           </Link>
 
         </div>
@@ -52,7 +59,10 @@ function About() {
           {/* LEFT FEATURE */}
           <div className="about-feature">
 
-            <div className="about-feature-icon">
+            <div
+              className="about-feature-icon"
+              aria-hidden="true"
+            >
               <Heart size={26} />
             </div>
 
@@ -71,7 +81,10 @@ function About() {
               className="about-feature-link"
             >
               Explore Our Programs
-              <ArrowRight size={17} />
+              <ArrowRight
+                size={17}
+                aria-hidden="true"
+              />
             </Link>
 
           </div>
@@ -82,7 +95,10 @@ function About() {
 
             <div className="about-value-card">
 
-              <div className="about-value-icon">
+              <div
+                className="about-value-icon"
+                aria-hidden="true"
+              >
                 <Heart size={21} />
               </div>
 
@@ -100,7 +116,10 @@ function About() {
 
             <div className="about-value-card">
 
-              <div className="about-value-icon">
+              <div
+                className="about-value-icon"
+                aria-hidden="true"
+              >
                 <BookOpen size={21} />
               </div>
 
@@ -118,7 +137,10 @@ function About() {
 
             <div className="about-value-card">
 
-              <div className="about-value-icon">
+              <div
+                className="about-value-icon"
+                aria-hidden="true"
+              >
                 <Users size={21} />
               </div>
 
@@ -136,7 +158,10 @@ function About() {
 
             <div className="about-value-card">
 
-              <div className="about-value-icon">
+              <div
+                className="about-value-icon"
+                aria-hidden="true"
+              >
                 <Sparkles size={21} />
               </div>
 
@@ -175,7 +200,10 @@ function About() {
             className="about-cta-button"
           >
             Explore Admissions
-            <ArrowRight size={18} />
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+            />
           </Link>
 
         </div>

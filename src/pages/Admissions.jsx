@@ -4,6 +4,7 @@ import {
   Baby,
   BookOpen,
   GraduationCap,
+  Scissors,
   ArrowRight,
   Phone,
 } from "lucide-react";
@@ -28,6 +29,12 @@ function Admissions() {
       title: "Primary",
       description:
         "Supporting children as they develop knowledge, abilities and confidence through meaningful learning.",
+    },
+    {
+      icon: Scissors,
+      title: "Skill Development Programs",
+      description:
+        "Practical skills training designed to help learners develop useful abilities in sewing, hair dressing, hair cutting, cooking and beading.",
     },
   ];
 
@@ -62,14 +69,18 @@ function Admissions() {
     <main className="admissions-page">
 
       {/* HERO */}
-      <section className="admissions-hero">
+      <section
+        className="admissions-hero"
+        aria-labelledby="admissions-hero-heading"
+      >
         <div className="container">
           <div className="admissions-hero-content">
+
             <span className="admissions-label">
               ADMISSIONS
             </span>
 
-            <h1>
+            <h1 id="admissions-hero-heading">
               Give your child
               <span>a place to dream.</span>
             </h1>
@@ -81,35 +92,45 @@ function Admissions() {
             </p>
 
             <div className="admissions-hero-actions">
+
               <a
                 href="#admission-process"
                 className="admissions-primary-button"
               >
                 Admission Process
-                <ArrowRight size={18} />
+                <ArrowRight
+                  size={18}
+                  aria-hidden="true"
+                />
               </a>
 
-              <a
-                href="/#contact"
+              <Link
+                to="/#contact"
                 className="admissions-secondary-button"
               >
                 Contact the School
-              </a>
+              </Link>
+
             </div>
           </div>
         </div>
       </section>
 
+
       {/* PROGRAMS */}
-      <section className="admissions-programs">
+      <section
+        className="admissions-programs"
+        aria-labelledby="admissions-programs-heading"
+      >
         <div className="container">
 
           <div className="admissions-section-header">
+
             <span className="admissions-section-label">
               LEARNING OPTIONS
             </span>
 
-            <h2>
+            <h2 id="admissions-programs-heading">
               Find the right
               <span> learning stage.</span>
             </h2>
@@ -117,11 +138,14 @@ function Admissions() {
             <p>
               Archives of Dreams Education Center provides
               learning opportunities across Baby Care,
-              Pre-School and Primary education.
+              Pre-School, Primary education and Skill
+              Development Programs.
             </p>
+
           </div>
 
           <div className="admissions-program-grid">
+
             {programs.map((program) => {
               const Icon = program.icon;
 
@@ -130,7 +154,11 @@ function Admissions() {
                   className="admissions-program-card"
                   key={program.title}
                 >
-                  <div className="admissions-program-icon">
+
+                  <div
+                    className="admissions-program-icon"
+                    aria-hidden="true"
+                  >
                     <Icon size={28} />
                   </div>
 
@@ -143,29 +171,36 @@ function Admissions() {
                     className="admissions-program-link"
                   >
                     Learn More
-                    <ArrowRight size={17} />
+                    <ArrowRight
+                      size={17}
+                      aria-hidden="true"
+                    />
                   </Link>
+
                 </article>
               );
             })}
-          </div>
 
+          </div>
         </div>
       </section>
+
 
       {/* ADMISSION PROCESS */}
       <section
         className="admissions-process"
         id="admission-process"
+        aria-labelledby="admissions-process-heading"
       >
         <div className="container">
 
           <div className="admissions-section-header">
+
             <span className="admissions-section-label">
               HOW IT WORKS
             </span>
 
-            <h2>
+            <h2 id="admissions-process-heading">
               A simple path to
               <span> getting started.</span>
             </h2>
@@ -174,44 +209,61 @@ function Admissions() {
               Begin by contacting the school and learning about
               the admission process for your child.
             </p>
+
           </div>
 
           <div className="admissions-steps">
+
             {steps.map((step) => (
               <div
                 className="admissions-step"
                 key={step.number}
               >
-                <div className="admissions-step-number">
+
+                <div
+                  className="admissions-step-number"
+                  aria-hidden="true"
+                >
                   {step.number}
                 </div>
 
                 <div className="admissions-step-content">
+
                   <h3>{step.title}</h3>
 
                   <p>{step.description}</p>
+
                 </div>
+
               </div>
             ))}
-          </div>
 
+          </div>
         </div>
       </section>
 
+
       {/* CONTACT */}
-      <section className="admissions-contact">
+      <section
+        className="admissions-contact"
+        aria-labelledby="admissions-contact-heading"
+      >
         <div className="container">
 
           <div className="admissions-contact-card">
 
-            <div className="admissions-contact-icon">
+            <div
+              className="admissions-contact-icon"
+              aria-hidden="true"
+            >
               <Phone size={28} />
             </div>
 
             <div className="admissions-contact-content">
+
               <span>HAVE QUESTIONS?</span>
 
-              <h2>
+              <h2 id="admissions-contact-heading">
                 We are here to help you get started.
               </h2>
 
@@ -220,34 +272,43 @@ function Admissions() {
                 admissions and the learning opportunities
                 available for your child.
               </p>
+
             </div>
 
-            <a
-              href="/#contact"
+            <Link
+              to="/#contact"
               className="admissions-contact-button"
             >
               Contact Us
-              <ArrowRight size={18} />
-            </a>
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
+            </Link>
 
           </div>
-
         </div>
       </section>
 
+
       {/* FINAL CTA */}
-      <section className="admissions-final">
+      <section
+        className="admissions-final"
+        aria-labelledby="admissions-final-heading"
+      >
         <div className="container">
 
           <div className="admissions-final-inner">
 
             <div>
+
               <span>EDUCATION IS THE KEY.</span>
 
-              <h2>
+              <h2 id="admissions-final-heading">
                 Every child's journey begins
                 with an opportunity.
               </h2>
+
             </div>
 
             <Link
@@ -255,11 +316,13 @@ function Admissions() {
               className="admissions-final-button"
             >
               Explore Programs
-              <ArrowRight size={18} />
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
             </Link>
 
           </div>
-
         </div>
       </section>
 

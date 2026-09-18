@@ -5,46 +5,46 @@
 
 .about-page {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
   background: var(--off-white);
   color: var(--text-dark);
 }
 
-
 /* =========================================================
-   PAGE HERO
+   ABOUT PAGE HERO
 ========================================================= */
 
 .about-page-hero {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 90px 0;
   background: var(--royal-blue);
   color: var(--white);
-  padding: 90px 0;
 }
 
-.about-page-hero-content {
-  max-width: 780px;
+.about-page-hero .container {
+  min-width: 0;
 }
 
-.about-page-label {
+.about-page-hero .section-label {
   display: inline-block;
   margin-bottom: 18px;
-
   color: var(--gold-light);
-
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .about-page-hero h1 {
+  max-width: 850px;
   margin: 0;
-
   color: var(--white);
-
   font-size: clamp(42px, 6vw, 68px);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -2px;
+  overflow-wrap: anywhere;
 }
 
 .about-page-hero h1 span {
@@ -53,380 +53,276 @@
 }
 
 .about-page-hero p {
-  max-width: 650px;
+  max-width: 700px;
   margin: 24px 0 0;
-
   color: rgba(255, 255, 255, 0.82);
-
   font-size: 17px;
   line-height: 1.8;
+  overflow-wrap: anywhere;
 }
-
 
 /* =========================================================
-   GENERAL SECTION
-========================================================= */
-
-.about-page-section {
-  padding: 90px 0;
-}
-
-.about-page-section-header {
-  max-width: 760px;
-  margin-bottom: 50px;
-}
-
-.about-page-section-label {
-  display: inline-block;
-  margin-bottom: 14px;
-
-  color: var(--gold-dark);
-
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.about-page-section-header h2 {
-  margin: 0;
-
-  color: var(--royal-blue);
-
-  font-size: clamp(34px, 4vw, 50px);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -1.5px;
-}
-
-.about-page-section-header h2 span {
-  color: var(--gold-dark);
-}
-
-.about-page-section-header p {
-  margin: 18px 0 0;
-
-  color: var(--text-muted);
-
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-
-/* =========================================================
-   OUR STORY
+   STORY SECTION
 ========================================================= */
 
 .about-story {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 90px 0;
+  background: var(--off-white);
+}
+
+.about-story-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: grid;
+  grid-template-columns:
+    minmax(0, 0.8fr)
+    minmax(0, 1.2fr);
+  gap: 70px;
+  align-items: start;
+}
 
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+.about-story-heading {
+  min-width: 0;
+}
 
-  gap: 55px;
+.about-story-heading .section-label {
+  display: inline-block;
+  margin-bottom: 16px;
+}
 
-  align-items: center;
+.about-story-heading h2 {
+  max-width: 450px;
+  margin: 0;
+  color: var(--royal-blue);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  overflow-wrap: anywhere;
+}
+
+.about-story-heading h2 span {
+  color: var(--gold-dark);
 }
 
 .about-story-content {
   min-width: 0;
-}
-
-.about-story-content h2 {
-  margin: 0;
-
-  color: var(--royal-blue);
-
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 1.15;
-}
-
-.about-story-content h2 span {
-  color: var(--gold-dark);
+  max-width: 720px;
 }
 
 .about-story-content p {
-  margin: 18px 0 0;
-
-  color: var(--text-muted);
-
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-
-/* =========================================================
-   STORY FEATURE CARD
-========================================================= */
-
-.about-story-card {
-  position: relative;
-
-  min-height: 360px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 45px;
-
-  overflow: hidden;
-
-  background: var(--royal-blue);
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow-md);
-}
-
-.about-story-card::before {
-  content: "";
-
-  position: absolute;
-
-  width: 190px;
-  height: 190px;
-
-  top: -80px;
-  right: -70px;
-
-  background: var(--gold);
-
-  border-radius: 50%;
-
-  opacity: 0.9;
-}
-
-.about-story-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 110px;
-  height: 110px;
-
-  bottom: -45px;
-  left: -35px;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  border-radius: 50%;
-}
-
-.about-story-card-content {
-  position: relative;
-
-  z-index: 1;
-
-  max-width: 400px;
-
-  text-align: center;
-}
-
-.about-story-icon {
-  width: 72px;
-  height: 72px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 auto 22px;
-
-  color: var(--royal-blue);
-
-  background: var(--gold-light);
-
-  border-radius: 50%;
-}
-
-.about-story-card h3 {
   margin: 0;
-
-  color: var(--white);
-
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 1.2;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
 }
 
-.about-story-card p {
-  max-width: 360px;
-
-  margin: 12px auto 0;
-
-  color: rgba(255, 255, 255, 0.78);
-
-  font-size: 14px;
-  line-height: 1.7;
+.about-story-content p + p {
+  margin-top: 20px;
 }
-
 
 /* =========================================================
    VALUES SECTION
 ========================================================= */
 
-.about-values-section {
+.about-values {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 90px 0;
   background: var(--white);
 }
 
+.about-section-heading {
+  width: 100%;
+  max-width: 760px;
+  min-width: 0;
+  margin-bottom: 50px;
+}
 
-/* IMPORTANT:
-   Explicitly define the four-card grid so that
-   homepage About.css cannot distort these cards.
+.about-section-heading .section-label {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.about-section-heading h2 {
+  margin: 0;
+  color: var(--royal-blue);
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  overflow-wrap: anywhere;
+}
+
+.about-section-heading h2 span {
+  color: var(--gold-dark);
+}
+
+.about-section-heading p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   VALUES GRID
 ========================================================= */
 
 .about-values-grid {
   width: 100%;
-
+  max-width: 100%;
+  min-width: 0;
   display: grid;
-
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
-
   gap: 20px;
-
   align-items: stretch;
 }
-
 
 /* =========================================================
    VALUE CARD
 ========================================================= */
 
-.about-values-grid .about-value-card {
+.about-value-card {
   width: 100%;
   min-width: 0;
-
   box-sizing: border-box;
-
   display: flex;
-
   flex-direction: column;
-
-  padding: 28px 24px;
-
-  background: var(--white);
-
-  border: 1px solid var(--border);
-
-  border-radius: var(--radius-md);
-
-  box-shadow: var(--shadow-sm);
-
+  padding: 30px 24px;
   overflow: hidden;
-
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
     border-color 0.2s ease;
 }
 
-.about-values-grid .about-value-card:hover {
+.about-value-card:hover {
   transform: translateY(-4px);
-
   border-color: var(--gold-light);
-
   box-shadow: var(--shadow-md);
 }
 
+.about-value-card h3,
+.about-value-card p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 
 /* =========================================================
    VALUE ICON
 ========================================================= */
 
-.about-values-grid .about-value-icon {
-  width: 48px;
-  height: 48px;
-
-  min-width: 48px;
-
+.about-value-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  flex: 0 0 50px;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   margin-bottom: 20px;
-
   color: var(--royal-blue);
-
   background: var(--royal-blue-light);
-
   border-radius: 12px;
 }
 
-
 /* =========================================================
-   VALUE TITLE
+   VALUE CARD TEXT
 ========================================================= */
 
-.about-values-grid .about-value-card h3 {
-  width: 100%;
-
+.about-value-card h3 {
   margin: 0 0 10px;
-
   color: var(--royal-blue);
-
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 900;
-
   line-height: 1.3;
 }
 
-
-/* =========================================================
-   VALUE DESCRIPTION
-========================================================= */
-
-.about-values-grid .about-value-card p {
+.about-value-card p {
   width: 100%;
   max-width: none;
-
   margin: 0;
-
   color: var(--text-muted);
-
   font-size: 14px;
-
-  line-height: 1.7;
-
-  overflow-wrap: break-word;
-  word-break: normal;
+  line-height: 1.75;
 }
-
 
 /* =========================================================
    EDUCATIONAL APPROACH
 ========================================================= */
 
 .about-approach {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 90px 0;
+  background: var(--off-white);
+}
+
+.about-approach-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   display: grid;
-
   grid-template-columns:
-    minmax(0, 1fr)
+    auto
     minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+  padding: 55px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
 
-  gap: 55px;
-
+.about-approach-icon {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  flex: 0 0 64px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  color: var(--royal-blue);
+  background: var(--gold-light);
+  border-radius: 50%;
 }
 
 .about-approach-content {
   min-width: 0;
+  max-width: 800px;
+}
+
+.about-approach-content .section-label {
+  display: inline-block;
+  margin-bottom: 16px;
 }
 
 .about-approach-content h2 {
   margin: 0;
-
   color: var(--royal-blue);
-
-  font-size: 38px;
-
+  font-size: clamp(34px, 4vw, 48px);
   font-weight: 900;
-
-  line-height: 1.15;
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+  overflow-wrap: anywhere;
 }
 
 .about-approach-content h2 span {
@@ -435,314 +331,310 @@
 
 .about-approach-content p {
   margin: 18px 0 0;
-
   color: var(--text-muted);
-
   font-size: 15px;
-
   line-height: 1.8;
+  overflow-wrap: anywhere;
 }
-
 
 /* =========================================================
-   APPROACH LIST
-========================================================= */
-
-.about-approach-list {
-  display: grid;
-
-  gap: 16px;
-}
-
-.about-approach-item {
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 14px;
-
-  padding: 20px;
-
-  background: var(--white);
-
-  border: 1px solid var(--border);
-
-  border-radius: var(--radius-md);
-
-  box-shadow: var(--shadow-sm);
-}
-
-.about-approach-item-icon {
-  width: 42px;
-  height: 42px;
-
-  min-width: 42px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color: var(--royal-blue);
-
-  background: var(--gold-light);
-
-  border-radius: 10px;
-}
-
-.about-approach-item h3 {
-  margin: 0 0 5px;
-
-  color: var(--royal-blue);
-
-  font-size: 15px;
-
-  font-weight: 800;
-}
-
-.about-approach-item p {
-  margin: 0;
-
-  color: var(--text-muted);
-
-  font-size: 13px;
-
-  line-height: 1.6;
-}
-
-
-/* =========================================================
-   PAGE CTA
+   FINAL CTA
 ========================================================= */
 
 .about-page-cta {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 75px 0;
   background: var(--royal-blue);
-
-  padding: 70px 0;
 }
 
-.about-page-cta-inner {
+.about-cta-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
-  gap: 30px;
+  gap: 35px;
+  padding: 50px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
 }
 
-.about-page-cta-content {
+.about-cta-card > div {
   min-width: 0;
 }
 
-.about-page-cta h2 {
+.about-cta-card .section-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--gold-light);
+}
+
+.about-cta-card h2 {
+  max-width: 720px;
   margin: 0;
-
   color: var(--white);
-
-  font-size: 32px;
-
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 900;
-
-  line-height: 1.2;
+  line-height: 1.12;
+  letter-spacing: -1px;
+  overflow-wrap: anywhere;
 }
 
-.about-page-cta p {
-  margin: 10px 0 0;
-
-  color: rgba(255, 255, 255, 0.75);
-
-  font-size: 14px;
-
-  line-height: 1.6;
+.about-cta-card h2 span {
+  color: var(--gold-light);
 }
 
-.about-page-cta-button {
+.about-cta-card p {
+  max-width: 650px;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 15px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.about-cta-button {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 8px;
-
-  min-height: 48px;
-
-  padding: 0 20px;
-
-  flex-shrink: 0;
-
+  min-height: 50px;
+  padding: 0 22px;
+  flex: 0 0 auto;
   background: var(--gold);
-
   color: var(--royal-blue-dark);
-
   text-decoration: none;
-
   border-radius: var(--radius-sm);
-
   font-size: 14px;
-
   font-weight: 800;
-
   white-space: nowrap;
-
   transition:
     background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.about-page-cta-button:hover {
+.about-cta-button:hover {
   background: var(--gold-light);
-
   transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
 }
 
+.about-cta-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+
+.about-page a:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 4px;
+}
 
 /* =========================================================
    LARGE TABLET
 ========================================================= */
 
 @media (max-width: 1050px) {
-
   .about-values-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
 
+  .about-story-grid {
+    gap: 45px;
+  }
 }
-
 
 /* =========================================================
    TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
-
   .about-page-hero {
     padding: 75px 0;
   }
 
-  .about-page-section {
+  .about-story,
+  .about-values,
+  .about-approach {
     padding: 75px 0;
   }
 
-  .about-story {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
+  .about-story-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
   }
 
-  .about-approach {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
+  .about-story-heading h2 {
+    max-width: 650px;
   }
 
+  .about-approach-card {
+    padding: 40px;
+  }
+
+  .about-cta-card {
+    padding: 40px;
+  }
 }
-
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 650px) {
-
   .about-page-hero {
     padding: 60px 0;
   }
 
   .about-page-hero h1 {
     font-size: 42px;
-
     letter-spacing: -1px;
   }
 
   .about-page-hero p {
     font-size: 15px;
+    line-height: 1.75;
   }
 
-
-  .about-page-section {
+  .about-story,
+  .about-values,
+  .about-approach {
     padding: 60px 0;
   }
 
-  .about-page-section-header {
-    margin-bottom: 35px;
-  }
-
-  .about-page-section-header h2 {
+  .about-story-heading h2,
+  .about-section-heading h2 {
     font-size: 34px;
-
     letter-spacing: -1px;
   }
 
-
-  .about-story-content h2,
-  .about-approach-content h2 {
-    font-size: 32px;
+  .about-story-content p {
+    font-size: 15px;
   }
-
-
-  .about-story-card {
-    min-height: 310px;
-
-    padding: 30px 22px;
-  }
-
 
   .about-values-grid {
-    grid-template-columns: 1fr;
-
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
 
-  .about-values-grid .about-value-card {
-    padding: 24px 20px;
+  .about-value-card {
+    padding: 25px 20px;
   }
 
-
-  .about-approach {
-    gap: 35px;
+  .about-section-heading {
+    margin-bottom: 35px;
   }
 
-
-  .about-page-cta {
-    padding: 55px 0;
+  .about-approach-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 30px 24px;
   }
 
-  .about-page-cta-inner {
+  .about-approach-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    flex-basis: 58px;
+  }
+
+  .about-approach-content h2 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .about-cta-card {
     align-items: flex-start;
-
     flex-direction: column;
+    padding: 32px 24px;
+    gap: 28px;
   }
 
-  .about-page-cta h2 {
-    font-size: 28px;
+  .about-cta-card h2 {
+    font-size: 30px;
   }
 
-  .about-page-cta-button {
+  .about-cta-button {
     width: 100%;
   }
-
 }
-
 
 /* =========================================================
    SMALL PHONES
 ========================================================= */
 
 @media (max-width: 400px) {
-
   .about-page-hero h1 {
     font-size: 36px;
   }
 
-  .about-page-section-header h2 {
+  .about-page-hero p {
+    font-size: 14px;
+  }
+
+  .about-story-heading h2,
+  .about-section-heading h2 {
     font-size: 30px;
   }
 
-  .about-story-content h2,
   .about-approach-content h2 {
     font-size: 28px;
   }
 
+  .about-cta-card h2 {
+    font-size: 28px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+  .about-page-hero h1 {
+    font-size: 32px;
+  }
+
+  .about-story-heading h2,
+  .about-section-heading h2 {
+    font-size: 28px;
+  }
+
+  .about-approach-card {
+    padding: 25px 18px;
+  }
+
+  .about-cta-card {
+    padding: 26px 18px;
+  }
+
+  .about-cta-card h2 {
+    font-size: 26px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-value-card,
+  .about-cta-button {
+    transition: none;
+  }
 }

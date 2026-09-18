@@ -16,7 +16,11 @@ function Contact() {
   };
 
   return (
-    <section className="contact section" id="contact">
+    <section
+      className="contact section"
+      id="contact"
+      aria-labelledby="contact-heading"
+    >
       <div className="container">
 
         <div className="contact-heading">
@@ -24,7 +28,7 @@ function Contact() {
             GET IN TOUCH
           </span>
 
-          <h2>
+          <h2 id="contact-heading">
             We'd love to
             <span> hear from you.</span>
           </h2>
@@ -36,13 +40,18 @@ function Contact() {
           </p>
         </div>
 
+
         <div className="contact-grid">
 
           <div className="contact-info">
 
             {/* School Contact */}
             <div className="contact-info-card">
-              <div className="contact-info-icon">
+
+              <div
+                className="contact-info-icon"
+                aria-hidden="true"
+              >
                 <Mail size={24} />
               </div>
 
@@ -57,11 +66,17 @@ function Contact() {
                   General school enquiries
                 </span>
               </div>
+
             </div>
+
 
             {/* Director Contact */}
             <div className="contact-info-card">
-              <div className="contact-info-icon">
+
+              <div
+                className="contact-info-icon"
+                aria-hidden="true"
+              >
                 <Phone size={24} />
               </div>
 
@@ -80,11 +95,17 @@ function Contact() {
                   Director, Archives of Dreams Education Center
                 </span>
               </div>
+
             </div>
+
 
             {/* Board Chairperson Contact */}
             <div className="contact-info-card">
-              <div className="contact-info-icon">
+
+              <div
+                className="contact-info-icon"
+                aria-hidden="true"
+              >
                 <Phone size={24} />
               </div>
 
@@ -97,7 +118,7 @@ function Contact() {
                   +254 727 236 785
                 </a>
 
-                <a href="mailto:omachistephe@gmail.com">
+                <a href="mailto:omachistephen@gmail.com">
                   omachistephen@gmail.com
                 </a>
 
@@ -105,7 +126,9 @@ function Contact() {
                   Board Chairperson
                 </span>
               </div>
+
             </div>
+
 
             <div className="contact-note">
               <strong>
@@ -123,13 +146,21 @@ function Contact() {
 
           </div>
 
+
           {/* Contact Form */}
           <div className="contact-form-card">
 
             {submitted ? (
-              <div className="contact-success">
+              <div
+                className="contact-success"
+                role="status"
+                aria-live="polite"
+              >
 
-                <div className="contact-success-icon">
+                <div
+                  className="contact-success-icon"
+                  aria-hidden="true"
+                >
                   <CheckCircle size={34} />
                 </div>
 
@@ -157,6 +188,7 @@ function Contact() {
                 <div className="contact-form-row">
 
                   <div className="contact-field">
+
                     <label htmlFor="name">
                       Your Name
                     </label>
@@ -166,11 +198,15 @@ function Contact() {
                       name="name"
                       type="text"
                       placeholder="Enter your name"
+                      autoComplete="name"
                       required
                     />
+
                   </div>
 
+
                   <div className="contact-field">
+
                     <label htmlFor="email">
                       Email Address
                     </label>
@@ -180,11 +216,14 @@ function Contact() {
                       name="email"
                       type="email"
                       placeholder="Enter your email"
+                      autoComplete="email"
                       required
                     />
+
                   </div>
 
                 </div>
+
 
                 <div className="contact-field">
 
@@ -197,9 +236,11 @@ function Contact() {
                     name="phone"
                     type="tel"
                     placeholder="Enter your phone number"
+                    autoComplete="tel"
                   />
 
                 </div>
+
 
                 <div className="contact-field">
 
@@ -217,12 +258,16 @@ function Contact() {
 
                 </div>
 
+
                 <button
                   type="submit"
                   className="contact-submit-button"
                 >
                   Send Message
-                  <Send size={18} />
+                  <Send
+                    size={18}
+                    aria-hidden="true"
+                  />
                 </button>
 
               </form>

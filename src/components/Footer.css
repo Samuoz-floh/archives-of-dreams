@@ -4,73 +4,106 @@
 ========================================================= */
 
 .footer {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
   background: var(--royal-blue-dark);
   color: var(--white);
   padding: 70px 0 25px;
 }
 
+.footer .container {
+  width: 100%;
+  min-width: 0;
+}
 
 /* =========================================================
    FOOTER GRID
 ========================================================= */
 
 .footer-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: grid;
-  grid-template-columns: 1.35fr 0.8fr 0.8fr 1.25fr;
-  gap: 45px;
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(0, 0.8fr)
+    minmax(0, 0.95fr)
+    minmax(0, 1.2fr);
+  gap: 42px;
   padding-bottom: 50px;
 }
-
 
 /* =========================================================
    FOOTER BRAND
 ========================================================= */
 
 .footer-brand {
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
+  overflow: hidden;
 }
 
 .footer-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
   color: var(--white);
   text-decoration: none;
+  vertical-align: top;
 }
 
-.footer-logo-mark {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: var(--gold);
-  color: var(--royal-blue-dark);
-  border-radius: 12px;
-  font-size: 17px;
-  font-weight: 900;
+.footer-logo-image {
+  display: block;
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  max-width: 76px;
+  min-height: 76px;
+  max-height: 76px;
+  flex: 0 0 76px;
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
 }
 
 .footer-logo > div:last-child {
+  width: auto;
+  max-width: 190px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
 
 .footer-logo strong {
+  display: block;
+  max-width: 100%;
+  margin: 0;
   color: var(--white);
   font-size: 16px;
   font-weight: 900;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .footer-logo span {
+  display: block;
+  max-width: 100%;
   color: var(--gold-light);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1px;
+  line-height: 1.4;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .footer-tagline {
@@ -78,43 +111,54 @@
   color: var(--gold-light);
   font-size: 14px;
   font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .footer-description {
+  width: 100%;
   max-width: 320px;
   margin: 0;
   color: rgba(255, 255, 255, 0.62);
   font-size: 13px;
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
-
 
 /* =========================================================
    FOOTER COLUMNS
 ========================================================= */
 
 .footer-column {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  min-width: 0;
 }
 
 .footer-column h3 {
+  max-width: 100%;
   margin: 0 0 9px;
   color: var(--gold-light);
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.5px;
+  line-height: 1.4;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .footer-column a {
+  display: inline-block;
+  max-width: 100%;
   color: rgba(255, 255, 255, 0.68);
   text-decoration: none;
   font-size: 13px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
@@ -125,26 +169,32 @@
   transform: translateX(3px);
 }
 
-
 /* =========================================================
    FOOTER CONTACT
 ========================================================= */
+
+.footer-contact {
+  overflow: hidden;
+}
 
 .footer-contact-item {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   width: 100%;
+  max-width: 100%;
   min-width: 0;
 }
 
 .footer-contact-item > svg {
-  flex-shrink: 0;
+  flex: 0 0 auto;
   margin-top: 2px;
   color: var(--gold-light);
 }
 
 .footer-contact-item > div {
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -152,13 +202,18 @@
 }
 
 .footer-contact-item strong {
+  max-width: 100%;
   color: var(--white);
   font-size: 12px;
   font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .footer-contact-item span,
 .footer-contact-item a {
+  display: block;
+  max-width: 100%;
   color: rgba(255, 255, 255, 0.65);
   font-size: 11px;
   line-height: 1.5;
@@ -167,23 +222,28 @@
 
 .footer-contact-item a {
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-contact-item a:hover {
   color: var(--gold-light);
 }
 
-
 /* =========================================================
    SUPPORT BANNER
 ========================================================= */
 
 .footer-support {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 25px;
   padding: 24px 28px;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
@@ -200,12 +260,15 @@
   color: var(--white);
   font-size: 15px;
   font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .footer-support span {
   color: rgba(255, 255, 255, 0.6);
   font-size: 12px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .footer-support > a {
@@ -215,7 +278,7 @@
   gap: 7px;
   min-height: 44px;
   padding: 0 17px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   background: var(--gold);
   color: var(--royal-blue-dark);
   text-decoration: none;
@@ -225,14 +288,28 @@
   white-space: nowrap;
   transition:
     background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .footer-support > a:hover {
   background: var(--gold-light);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
 }
 
+.footer-support > a:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+
+.footer a:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 4px;
+}
 
 /* =========================================================
    FOOTER BOTTOM
@@ -242,6 +319,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-width: 0;
   gap: 20px;
   margin-top: 30px;
   padding-top: 22px;
@@ -249,10 +327,12 @@
 }
 
 .footer-bottom p {
+  min-width: 0;
   margin: 0;
   color: rgba(255, 255, 255, 0.48);
   font-size: 11px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .footer-bottom p:last-child {
@@ -260,35 +340,100 @@
   font-weight: 700;
 }
 
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns:
+      minmax(0, 1.1fr)
+      minmax(0, 0.9fr)
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
+    gap: 32px;
+  }
+
+  .footer-logo-image {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 70px;
+    max-height: 70px;
+    flex-basis: 70px;
+  }
+}
 
 /* =========================================================
    TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
-
+@media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
     gap: 40px 35px;
   }
 
+  .footer-logo-image {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+    max-width: 68px;
+    min-height: 68px;
+    max-height: 68px;
+    flex-basis: 68px;
+  }
 }
 
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+  .footer-support {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-support > a {
+    width: 100%;
+  }
+}
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 650px) {
-
   .footer {
     padding: 55px 0 22px;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
     padding-bottom: 35px;
+  }
+
+  .footer-logo {
+    gap: 12px;
+  }
+
+  .footer-logo-image {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    max-width: 64px;
+    min-height: 64px;
+    max-height: 64px;
+    flex-basis: 64px;
+  }
+
+  .footer-logo > div:last-child {
+    max-width: calc(100% - 76px);
   }
 
   .footer-description {
@@ -296,8 +441,6 @@
   }
 
   .footer-support {
-    align-items: flex-start;
-    flex-direction: column;
     padding: 22px;
   }
 
@@ -311,16 +454,13 @@
     gap: 8px;
     margin-top: 25px;
   }
-
 }
-
 
 /* =========================================================
    SMALL PHONES
 ========================================================= */
 
 @media (max-width: 400px) {
-
   .footer {
     padding-top: 48px;
   }
@@ -329,13 +469,81 @@
     gap: 28px;
   }
 
-  .footer-logo-mark {
-    width: 44px;
-    height: 44px;
+  .footer-logo {
+    gap: 10px;
+  }
+
+  .footer-logo-image {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    max-width: 58px;
+    min-height: 58px;
+    max-height: 58px;
+    flex-basis: 58px;
+  }
+
+  .footer-logo > div:last-child {
+    max-width: calc(100% - 68px);
+  }
+
+  .footer-logo strong {
+    font-size: 15px;
   }
 
   .footer-support {
     padding: 20px;
   }
+}
 
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+  .footer {
+    padding-top: 42px;
+  }
+
+  .footer-logo {
+    gap: 8px;
+  }
+
+  .footer-logo-image {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    max-width: 52px;
+    min-height: 52px;
+    max-height: 52px;
+    flex-basis: 52px;
+  }
+
+  .footer-logo > div:last-child {
+    max-width: calc(100% - 60px);
+  }
+
+  .footer-logo strong {
+    font-size: 14px;
+  }
+
+  .footer-support {
+    padding: 18px;
+  }
+
+  .footer-support strong {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-column a,
+  .footer-contact-item a,
+  .footer-support > a {
+    transition: none;
+  }
 }

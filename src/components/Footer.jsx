@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, ArrowUpRight } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  ArrowUpRight,
+} from "lucide-react";
 import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer
+      className="footer"
+      aria-label="Archives of Dreams Education Center footer"
+    >
       <div className="container">
 
         {/* FOOTER MAIN CONTENT */}
@@ -13,10 +20,15 @@ function Footer() {
 
           {/* SCHOOL BRAND */}
           <div className="footer-brand">
-            <Link to="/" className="footer-logo">
+
+            <Link
+              to="/"
+              className="footer-logo"
+              aria-label="Archives of Dreams Education Center home"
+            >
 
               <img
-                src="/school-logo.png"
+                src={`${import.meta.env.BASE_URL}school-logo.png`}
                 alt="Archives of Dreams Education Center logo"
                 className="footer-logo-image"
               />
@@ -35,11 +47,15 @@ function Footer() {
             <p className="footer-description">
               A caring learning environment where every child's dream can begin.
             </p>
+
           </div>
 
 
           {/* QUICK LINKS */}
-          <div className="footer-column">
+          <nav
+            className="footer-column"
+            aria-label="Quick links"
+          >
             <h3>Quick Links</h3>
 
             <Link to="/">Home</Link>
@@ -48,27 +64,39 @@ function Footer() {
             <Link to="/admissions">Admissions</Link>
             <Link to="/donate">Donate</Link>
             <a href="/#contact">Contact Us</a>
-          </div>
+          </nav>
 
 
           {/* PROGRAMS */}
-          <div className="footer-column">
+          <nav
+            className="footer-column"
+            aria-label="School programs"
+          >
             <h3>Our Programs</h3>
 
             <Link to="/programs">Baby Care</Link>
             <Link to="/programs">Pre-School</Link>
             <Link to="/programs">Primary</Link>
+            <Link to="/programs">
+              Skill Development Programs
+            </Link>
             <Link to="/admissions">Admissions</Link>
-          </div>
+          </nav>
 
 
           {/* CONTACT INFORMATION */}
           <div className="footer-column footer-contact">
+
             <h3>Contact Us</h3>
+
 
             {/* DIRECTOR */}
             <div className="footer-contact-item">
-              <Phone size={18} />
+
+              <Phone
+                size={18}
+                aria-hidden="true"
+              />
 
               <div>
                 <strong>Director</strong>
@@ -83,12 +111,17 @@ function Footer() {
                   everlynesther1@gmail.com
                 </a>
               </div>
+
             </div>
 
 
             {/* BOARD CHAIRPERSON */}
             <div className="footer-contact-item">
-              <Phone size={18} />
+
+              <Phone
+                size={18}
+                aria-hidden="true"
+              />
 
               <div>
                 <strong>Board Chairperson</strong>
@@ -99,16 +132,21 @@ function Footer() {
                   +254 727 236 785
                 </a>
 
-                <a href="mailto:omachistephe@gmail.com">
-                  omachistephe@gmail.com
+                <a href="mailto:omachistephen@gmail.com">
+                  omachistephen@gmail.com
                 </a>
               </div>
+
             </div>
 
 
             {/* SCHOOL EMAIL */}
             <div className="footer-contact-item">
-              <Mail size={18} />
+
+              <Mail
+                size={18}
+                aria-hidden="true"
+              />
 
               <div>
                 <strong>School Email</strong>
@@ -117,6 +155,7 @@ function Footer() {
                   New school email coming soon
                 </span>
               </div>
+
             </div>
 
           </div>
@@ -140,7 +179,10 @@ function Footer() {
 
           <Link to="/donate">
             Support the Children
-            <ArrowUpRight size={18} />
+            <ArrowUpRight
+              size={18}
+              aria-hidden="true"
+            />
           </Link>
 
         </div>
