@@ -3,6 +3,7 @@ import {
   Phone,
   Mail,
   MessageCircle,
+  MapPin,
   Send,
   CheckCircle,
 } from "lucide-react";
@@ -11,13 +12,16 @@ import "./Contact.css";
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
+  const whatsappLink =
+    "https://wa.me/254711329337?text=Hello%20Archives%20of%20Dreams%20Education%20Center%2C%20I%20would%20like%20to%20make%20an%20enquiry.";
+
+  const googleMapsLink =
+    "https://maps.app.goo.gl/hsPHgceWdZ846JVt7";
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
   };
-
-  const whatsappLink =
-    "https://wa.me/254711329337?text=Hello%20Archives%20of%20Dreams%20Education%20Center%2C%20I%20would%20like%20to%20make%20an%20enquiry.";
 
   return (
     <section
@@ -26,31 +30,26 @@ function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="container">
-
         <div className="contact-heading">
-          <span className="section-label">
-            GET IN TOUCH
-          </span>
+          <span className="section-label">CONTACT US</span>
 
           <h2 id="contact-heading">
-            We'd love to
+            We would love to
             <span> hear from you.</span>
           </h2>
 
           <p>
-            Whether you are a parent, guardian, partner, or
-            someone who would like to support the children,
-            please feel free to contact us.
+            Whether you have a question about admissions, our programs,
+            donations or the school, please get in touch with us.
+            We look forward to connecting with you.
           </p>
         </div>
 
         <div className="contact-grid">
-
           <div className="contact-info">
 
             {/* School Contact */}
             <div className="contact-info-card">
-
               <div
                 className="contact-info-icon"
                 aria-hidden="true"
@@ -69,13 +68,10 @@ function Contact() {
                   General school enquiries
                 </span>
               </div>
-
             </div>
-
 
             {/* Director Contact */}
             <div className="contact-info-card">
-
               <div
                 className="contact-info-icon"
                 aria-hidden="true"
@@ -98,13 +94,10 @@ function Contact() {
                   Director, Archives of Dreams Education Center
                 </span>
               </div>
-
             </div>
-
 
             {/* WhatsApp Contact */}
             <div className="contact-info-card">
-
               <div
                 className="contact-info-icon"
                 aria-hidden="true"
@@ -128,13 +121,37 @@ function Contact() {
                   +254 711 329 337
                 </span>
               </div>
-
             </div>
 
+            {/* School Location */}
+            <div className="contact-info-card">
+              <div
+                className="contact-info-icon"
+                aria-hidden="true"
+              >
+                <MapPin size={24} />
+              </div>
+
+              <div>
+                <h3>School Location</h3>
+
+                <a
+                  href={googleMapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Archives of Dreams Education Center location in Google Maps"
+                >
+                  View our location on Google Maps
+                </a>
+
+                <span>
+                  Get directions to Archives of Dreams Education Center
+                </span>
+              </div>
+            </div>
 
             {/* Board Chairperson Contact */}
             <div className="contact-info-card">
-
               <div
                 className="contact-info-icon"
                 aria-hidden="true"
@@ -159,10 +176,9 @@ function Contact() {
                   Board Chairperson
                 </span>
               </div>
-
             </div>
 
-
+            {/* Contact Note */}
             <div className="contact-note">
               <strong>
                 Archives of Dreams Education Center
@@ -176,20 +192,16 @@ function Contact() {
                 We look forward to connecting with you.
               </span>
             </div>
-
           </div>
-
 
           {/* Contact Form */}
           <div className="contact-form-card">
-
             {submitted ? (
               <div
                 className="contact-success"
                 role="status"
                 aria-live="polite"
               >
-
                 <div
                   className="contact-success-icon"
                   aria-hidden="true"
@@ -213,15 +225,11 @@ function Contact() {
                 >
                   Send another message
                 </button>
-
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-
                 <div className="contact-form-row">
-
                   <div className="contact-field">
-
                     <label htmlFor="name">
                       Your Name
                     </label>
@@ -234,12 +242,9 @@ function Contact() {
                       autoComplete="name"
                       required
                     />
-
                   </div>
 
-
                   <div className="contact-field">
-
                     <label htmlFor="email">
                       Email Address
                     </label>
@@ -252,14 +257,10 @@ function Contact() {
                       autoComplete="email"
                       required
                     />
-
                   </div>
-
                 </div>
 
-
                 <div className="contact-field">
-
                   <label htmlFor="phone">
                     Phone Number
                   </label>
@@ -271,12 +272,9 @@ function Contact() {
                     placeholder="Enter your phone number"
                     autoComplete="tel"
                   />
-
                 </div>
 
-
                 <div className="contact-field">
-
                   <label htmlFor="message">
                     Your Message
                   </label>
@@ -288,28 +286,23 @@ function Contact() {
                     placeholder="How can we help you?"
                     required
                   />
-
                 </div>
-
 
                 <button
                   type="submit"
                   className="contact-submit-button"
                 >
                   Send Message
+
                   <Send
                     size={18}
                     aria-hidden="true"
                   />
                 </button>
-
               </form>
             )}
-
           </div>
-
         </div>
-
       </div>
     </section>
   );
