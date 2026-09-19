@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Phone,
   Mail,
+  MessageCircle,
   Send,
   CheckCircle,
 } from "lucide-react";
@@ -14,6 +15,9 @@ function Contact() {
     event.preventDefault();
     setSubmitted(true);
   };
+
+  const whatsappLink =
+    "https://wa.me/254711329337?text=Hello%20Archives%20of%20Dreams%20Education%20Center%2C%20I%20would%20like%20to%20make%20an%20enquiry.";
 
   return (
     <section
@@ -39,7 +43,6 @@ function Contact() {
             please feel free to contact us.
           </p>
         </div>
-
 
         <div className="contact-grid">
 
@@ -93,6 +96,36 @@ function Contact() {
 
                 <span>
                   Director, Archives of Dreams Education Center
+                </span>
+              </div>
+
+            </div>
+
+
+            {/* WhatsApp Contact */}
+            <div className="contact-info-card">
+
+              <div
+                className="contact-info-icon"
+                aria-hidden="true"
+              >
+                <MessageCircle size={24} />
+              </div>
+
+              <div>
+                <h3>WhatsApp</h3>
+
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat with Archives of Dreams Education Center on WhatsApp"
+                >
+                  Chat with us on WhatsApp
+                </a>
+
+                <span>
+                  +254 711 329 337
                 </span>
               </div>
 
