@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,6 +20,52 @@ import AboutPage from "./pages/AboutPage.jsx";
 import ProgramsPage from "./pages/ProgramsPage.jsx";
 import DonatePage from "./pages/DonatePage.jsx";
 
+/* =========================================================
+   SCROLL TO TOP / HASH TARGET
+========================================================= */
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+
+      const scrollToSection = () => {
+        const element = document.getElementById(id);
+
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        } else {
+          window.scrollTo({
+            top: 0,
+            behavior: "auto",
+          });
+        }
+      };
+
+      // Allow the new page/section to render before scrolling.
+      const timer = setTimeout(scrollToSection, 50);
+
+      return () => clearTimeout(timer);
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+  }, [pathname, hash]);
+
+  return null;
+}
+
+/* =========================================================
+   HOMEPAGE
+========================================================= */
+
 function Home() {
   return (
     <main>
@@ -27,6 +78,10 @@ function Home() {
   );
 }
 
+/* =========================================================
+   APP
+========================================================= */
+
 function App() {
   const isGitHubPages =
     window.location.hostname.endsWith("github.io");
@@ -37,6 +92,8 @@ function App() {
 
   return (
     <BrowserRouter basename={basename}>
+      <ScrollToTop />
+
       <Navbar />
 
       <Routes>

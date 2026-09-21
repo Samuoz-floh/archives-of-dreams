@@ -1,192 +1,272 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
-  Baby,
-  BookOpen,
+  Shirt,
+  Footprints,
+  Utensils,
+  Gamepad2,
+  Pencil,
   GraduationCap,
-  Scissors,
-  HeartHandshake,
+  WalletCards,
+  Heart,
+  Smartphone,
   ArrowRight,
+  Home,
+  Users,
+  BookOpen,
 } from "lucide-react";
-import "./ProgramsPage.css";
+import { Link } from "react-router-dom";
+import "./DonatePage.css";
 
-function ProgramsPage() {
-  const programs = [
+function DonatePage() {
+  const donationItems = [
     {
-      number: "01",
-      icon: Baby,
-      title: "Baby Care",
-      subtitle: "A gentle beginning",
-      description:
-        "A caring and nurturing environment for young children as they begin their early learning journey.",
-      points: [
-        "Safe and caring environment",
-        "Early learning experiences",
-        "Encouragement and support",
-      ],
+      icon: Shirt,
+      title: "School Uniforms",
+      text: "Help provide school uniforms for children who need them.",
     },
     {
-      number: "02",
-      icon: BookOpen,
-      title: "Pre-School",
-      subtitle: "Building strong foundations",
-      description:
-        "A learning environment where children can develop curiosity, creativity, confidence and essential early skills.",
-      points: [
-        "Early childhood learning",
-        "Curiosity and creativity",
-        "Confidence and social development",
-      ],
+      icon: Footprints,
+      title: "Shoes",
+      text: "Support children with comfortable and suitable school shoes.",
     },
     {
-      number: "03",
+      icon: Utensils,
+      title: "Food",
+      text: "Help provide nutritious food and support children's wellbeing.",
+    },
+    {
+      icon: Gamepad2,
+      title: "Play Materials",
+      text: "Provide learning and play materials that encourage creativity.",
+    },
+    {
+      icon: Pencil,
+      title: "Stationery",
+      text: "Help provide essential stationery and learning supplies.",
+    },
+    {
       icon: GraduationCap,
-      title: "Primary",
-      subtitle: "Growing knowledge and confidence",
-      description:
-        "Supporting children as they build knowledge, develop their abilities and prepare for the next stages of learning.",
-      points: [
-        "Knowledge and understanding",
-        "Development of abilities",
-        "Confidence for the future",
-      ],
+      title: "Tuition Fees",
+      text: "Help support a child's tuition fees and access to education.",
     },
     {
-      number: "04",
-      icon: Scissors,
-      title: "Skill Development Programs",
-      subtitle: "Building practical skills",
-      description:
-        "Practical skills training designed to help learners develop useful abilities and explore opportunities for personal and professional growth.",
-      points: [
-        "Sewing Skills",
-        "Hair Dressing",
-        "Hair Cutting",
-        "Cooking",
-        "Beading",
-      ],
+      icon: WalletCards,
+      title: "Full Fees",
+      text: "Support the full school fees required to help a child continue their education.",
     },
   ];
 
-  const imageBasePath = import.meta.env.BASE_URL;
+  const urgentSupportItems = [
+    {
+      icon: Home,
+      title: "School Rent",
+      text: "Support the school with its ongoing rental costs so learning can continue in a stable environment.",
+    },
+    {
+      icon: Users,
+      title: "Teacher Compensation",
+      text: "Help support the teachers who provide daily care, instruction, and guidance to the learners.",
+    },
+    {
+      icon: Utensils,
+      title: "Feeding Programme",
+      text: "Help provide food and support the wellbeing of children throughout the school term.",
+    },
+    {
+      icon: BookOpen,
+      title: "Learning Materials",
+      text: "Help provide textbooks and other learning resources needed by teachers and learners.",
+    },
+    {
+      icon: Shirt,
+      title: "School Uniforms",
+      text: "Support the school's goal of developing and providing suitable uniforms for learners.",
+    },
+  ];
 
   return (
-    <main className="programs-page">
-      <section className="programs-page-hero">
+    <main className="donate-page">
+      {/* =====================================================
+          DONATE HERO
+      ===================================================== */}
+      <section
+        className="donate-hero"
+        aria-labelledby="donate-page-heading"
+      >
         <div className="container">
-          <div className="programs-page-hero-content">
-            <span className="programs-page-label">
-              OUR PROGRAMS
+          <div className="donate-hero-content">
+            <span className="section-label">
+              SUPPORT THE CHILDREN
             </span>
 
-            <h1>
-              Learning that grows
-              <span>with every child.</span>
+            <h1 id="donate-page-heading">
+              Give a child the
+              <span>opportunity to dream.</span>
             </h1>
 
             <p>
-              Discover learning opportunities designed to support
-              children at different stages of their educational
-              journey and develop practical skills for the future.
+              Your support helps Archives of Dreams Education Center
+              provide children with the education, care, learning
+              materials, food, and other essential resources they
+              need to learn, grow, and pursue their dreams.
             </p>
+
+            <a
+              href="#donation-payment"
+              className="donate-primary-button"
+            >
+              Make a Donation
+              <ArrowRight size={18} aria-hidden="true" />
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="programs-page-intro">
+      {/* =====================================================
+          PAYMENT INFORMATION
+      ===================================================== */}
+      <section
+        className="donate-payment-section"
+        id="donation-payment"
+        aria-labelledby="payment-heading"
+      >
         <div className="container">
-          <div className="programs-page-intro-grid">
-            <div>
-              <span className="programs-page-section-label">
-                SUPPORTING EVERY STAGE
+          <div className="donate-payment-grid">
+            <div className="donate-payment-intro">
+              <span className="section-label">
+                HOW TO GIVE
               </span>
 
-              <h2>
-                A learning journey built
-                <span> around the child.</span>
+              <h2 id="payment-heading">
+                Support the children
+                <span>through M-PESA.</span>
               </h2>
+
+              <p>
+                You can support the work of Archives of Dreams
+                Education Center using the M-PESA PayBill details
+                below. Every contribution helps us respond to the
+                needs of children and strengthen their access to
+                education and essential support.
+              </p>
             </div>
 
-            <div>
-              <p>
-                Archives of Dreams Education Center provides
-                learning opportunities across Baby Care,
-                Pre-School, Primary education and Skill
-                Development Programs.
-              </p>
+            <div className="mpesa-card">
+              <div className="mpesa-card-header">
+                <div
+                  className="mpesa-icon"
+                  aria-hidden="true"
+                >
+                  <Smartphone size={24} />
+                </div>
 
-              <p>
-                Each program provides an opportunity for learning,
-                growth, discovery and the development of useful
-                skills for the future.
-              </p>
+                <div>
+                  <span className="mpesa-label">
+                    M-PESA
+                  </span>
+
+                  <h3>
+                    Donation Payment Details
+                  </h3>
+                </div>
+              </div>
+
+              <div className="payment-detail">
+                <span>PayBill Number</span>
+                <strong>247247</strong>
+              </div>
+
+              <div className="payment-detail">
+                <span>Account Number</span>
+                <strong>0320185552726</strong>
+              </div>
+
+              <div className="payment-detail payment-detail-last">
+                <span>Account Name</span>
+                <strong>ARCHIVES OF DREAMS CBO</strong>
+              </div>
+
+              <div className="mpesa-instructions">
+                <strong>How to donate</strong>
+
+                <ol>
+                  <li>
+                    Open M-PESA on your phone.
+                  </li>
+
+                  <li>
+                    Select Lipa na M-PESA.
+                  </li>
+
+                  <li>
+                    Select PayBill.
+                  </li>
+
+                  <li>
+                    Enter <strong>247247</strong> as the
+                    Business Number.
+                  </li>
+
+                  <li>
+                    Enter <strong>0320185552726</strong> as
+                    the Account Number.
+                  </li>
+
+                  <li>
+                    Enter the amount you wish to contribute
+                    and confirm.
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="programs-page-list">
+      {/* =====================================================
+          URGENT SUPPORT PRIORITIES
+      ===================================================== */}
+      <section
+        className="donate-support-section"
+        aria-labelledby="urgent-support-heading"
+      >
         <div className="container">
-          <div className="programs-page-list-header">
-            <span className="programs-page-section-label">
-              WHAT WE OFFER
+          <div className="donate-section-heading">
+            <span className="section-label">
+              CURRENT PRIORITIES
             </span>
 
-            <h2>
-              Explore our
-              <span> programs.</span>
+            <h2 id="urgent-support-heading">
+              Help meet the school's
+              <span>urgent needs.</span>
             </h2>
+
+            <p>
+              The school has identified several important areas
+              where support can help keep learning going and meet
+              the basic needs of children.
+            </p>
           </div>
 
-          <div className="programs-page-grid">
-            {programs.map((program) => {
-              const Icon = program.icon;
+          <div className="donate-support-grid">
+            {urgentSupportItems.map((item) => {
+              const Icon = item.icon;
 
               return (
                 <article
-                  className="programs-page-card"
-                  key={program.title}
+                  className="donate-support-card"
+                  key={item.title}
                 >
-                  <div className="programs-page-card-top">
-                    <div
-                      className="programs-page-icon"
-                      aria-hidden="true"
-                    >
-                      <Icon size={30} />
-                    </div>
-
-                    <span className="programs-page-number">
-                      {program.number}
-                    </span>
+                  <div
+                    className="donate-support-icon"
+                    aria-hidden="true"
+                  >
+                    <Icon size={22} />
                   </div>
 
-                  <span className="programs-page-subtitle">
-                    {program.subtitle}
-                  </span>
+                  <h3>{item.title}</h3>
 
-                  <h3>{program.title}</h3>
-
-                  <p className="programs-page-description">
-                    {program.description}
-                  </p>
-
-                  <div className="programs-page-points">
-                    {program.points.map((point) => (
-                      <div
-                        className="programs-page-point"
-                        key={point}
-                      >
-                        <span
-                          className="programs-page-check"
-                          aria-hidden="true"
-                        >
-                          ✓
-                        </span>
-
-                        <span>{point}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <p>{item.text}</p>
                 </article>
               );
             })}
@@ -194,112 +274,94 @@ function ProgramsPage() {
         </div>
       </section>
 
+      {/* =====================================================
+          AREAS OF SUPPORT
+      ===================================================== */}
       <section
-        className="baby-care-gallery-section"
-        aria-labelledby="baby-care-gallery-heading"
+        className="donate-support-section"
+        aria-labelledby="support-heading"
       >
         <div className="container">
-          <div className="baby-care-gallery-header">
-            <span className="programs-page-section-label">
-              BABY CARE PROGRAM
+          <div className="donate-section-heading">
+            <span className="section-label">
+              WAYS TO HELP
             </span>
 
-            <h2 id="baby-care-gallery-heading">
-              Learning through
-              <span> care and play.</span>
+            <h2 id="support-heading">
+              Your support can meet
+              <span>real needs.</span>
             </h2>
 
             <p>
-              Our Baby Care program provides a caring environment
-              where young children can learn, play and grow.
+              Contributions can help provide children with the
+              resources they need throughout their learning
+              journey.
             </p>
           </div>
 
-          <div className="baby-care-gallery">
-            <figure className="baby-care-photo">
-              <div className="baby-care-photo-image">
-                <img
-                  src={`${imageBasePath}child5.jpeg`}
-                  alt="Baby Care program activity at Archives of Dreams Education Center"
-                  loading="lazy"
-                />
-              </div>
+          <div className="donate-support-grid">
+            {donationItems.map((item) => {
+              const Icon = item.icon;
 
-              <figcaption>
-                <strong>Baby Care Activities</strong>
-                <span>
-                  Children participating in supervised indoor play
-                  and learning activities.
-                </span>
-              </figcaption>
-            </figure>
+              return (
+                <article
+                  className="donate-support-card"
+                  key={item.title}
+                >
+                  <div
+                    className="donate-support-icon"
+                    aria-hidden="true"
+                  >
+                    <Icon size={22} />
+                  </div>
 
-            <figure className="baby-care-photo">
-              <div className="baby-care-photo-image">
-                <img
-                  src={`${imageBasePath}child6.jpeg`}
-                  alt="Children learning through play in the Baby Care program"
-                  loading="lazy"
-                />
-              </div>
+                  <h3>{item.title}</h3>
 
-              <figcaption>
-                <strong>Learning Through Play</strong>
-                <span>
-                  Children enjoying interactive play in the Baby Care
-                  environment.
-                </span>
-              </figcaption>
-            </figure>
+                  <p>{item.text}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="programs-page-message">
+      {/* =====================================================
+          CLOSING CTA
+      ===================================================== */}
+      <section
+        className="donate-cta"
+        aria-labelledby="donate-cta-heading"
+      >
         <div className="container">
-          <div className="programs-page-message-card">
+          <div className="donate-cta-card">
             <div
-              className="programs-page-message-icon"
+              className="donate-cta-icon"
               aria-hidden="true"
             >
-              <HeartHandshake size={30} />
+              <Heart size={26} />
             </div>
 
-            <div className="programs-page-message-content">
-              <span>EDUCATION IS THE KEY.</span>
+            <div className="donate-cta-content">
+              <span className="section-label">
+                MAKE A DIFFERENCE
+              </span>
 
-              <h2>
-                Every child deserves the opportunity
-                to learn, grow and dream.
+              <h2 id="donate-cta-heading">
+                Every contribution can help
+                <span>build a brighter future.</span>
               </h2>
 
               <p>
-                We believe that a supportive learning environment
-                can help children develop their abilities and
-                approach the future with confidence.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="programs-page-cta">
-        <div className="container">
-          <div className="programs-page-cta-inner">
-            <div>
-              <h2>Ready to begin the journey?</h2>
-
-              <p>
-                Learn more about admissions at Archives of
-                Dreams Education Center.
+                Thank you for standing with Archives of Dreams
+                Education Center and the children we serve.
               </p>
             </div>
 
             <Link
-              to="/admissions"
-              className="programs-page-cta-button"
+              to="/"
+              className="donate-secondary-button"
             >
-              Explore Admissions
+              Back to Home
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
@@ -309,4 +371,4 @@ function ProgramsPage() {
   );
 }
 
-export default ProgramsPage;
+export default DonatePage;

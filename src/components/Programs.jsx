@@ -32,9 +32,9 @@ function Programs() {
     },
     {
       icon: Scissors,
-      title: "Skill Development Programs",
+      title: "Adult Skill Development & Empowerment",
       description:
-        "Practical skills training designed to help learners develop useful abilities in sewing, hair dressing, hair cutting, cooking and beading.",
+        "Practical empowerment programmes that help adults develop skills in sewing, hair dressing, hair cutting, cooking and beading, creating opportunities for income generation and greater self-reliance.",
     },
   ];
 
@@ -66,7 +66,7 @@ function Programs() {
               Our programs support children at different stages
               of their learning journey, from early childhood
               through primary education, while also providing
-              practical skill development opportunities.
+              adult skill development and empowerment opportunities.
             </p>
           </div>
 
@@ -135,7 +135,9 @@ function Programs() {
           </div>
 
           <div>
-            <strong>Skill Development Programs</strong>
+            <strong>
+              Adult Skill Development & Empowerment
+            </strong>
 
             <span>
               {skillPrograms.join(" • ")}

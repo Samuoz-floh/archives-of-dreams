@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    NAVBAR
    Archives of Dreams Education Center
 ========================================================= */
@@ -18,7 +18,6 @@
 .navbar-inner {
   position: relative;
   min-height: 78px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,48 +25,49 @@
 }
 
 /* =========================================================
-   SCHOOL BRAND
+   BRAND
 ========================================================= */
 
 .navbar-brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  min-width: 0;
-  max-width: 100%;
+  flex-shrink: 0;
+  color: var(--royal-blue);
   text-decoration: none;
 }
 
+.navbar-brand:hover {
+  color: var(--royal-blue-dark);
+}
+
 .navbar-logo-image {
-  width: 58px;
-  height: 58px;
-  flex-shrink: 0;
   display: block;
+  width: auto;
+  height: 58px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .navbar-school-name {
-  min-width: 0;
   display: flex;
   flex-direction: column;
-  line-height: 1.1;
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .navbar-school-name span {
   color: var(--royal-blue);
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: -0.3px;
-  overflow-wrap: anywhere;
 }
 
 .navbar-school-name small {
-  margin-top: 4px;
+  margin-top: 3px;
   color: var(--gold-dark);
-  font-size: 11px;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* =========================================================
@@ -77,51 +77,40 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-left: auto;
 }
 
-.navbar-links a,
-.navbar-links .navbar-link {
-  position: relative;
-  padding: 8px 0;
-  color: var(--text-dark);
+.navbar-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--royal-blue);
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
   white-space: nowrap;
   transition:
+    background 0.2s ease,
     color 0.2s ease,
-    transform 0.2s ease;
+    border-color 0.2s ease;
 }
 
-.navbar-links a:hover,
-.navbar-links .navbar-link:hover {
-  color: var(--royal-blue);
+.navbar-links a:hover {
+  background: var(--royal-blue-light);
+  color: var(--royal-blue-dark);
 }
 
-.navbar-links a::after,
-.navbar-links .navbar-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gold);
-  transition: width 0.2s ease;
-}
-
-.navbar-links a:hover::after,
-.navbar-links .navbar-link:hover::after {
-  width: 100%;
-}
-
-.navbar-links .navbar-link.active {
-  color: var(--royal-blue);
-}
-
-.navbar-links .navbar-link.active::after {
-  width: 100%;
+.navbar-links a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
 }
 
 /* =========================================================
@@ -134,7 +123,6 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  flex-shrink: 0;
   padding: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -150,12 +138,10 @@
 .navbar-menu-button:hover {
   background: var(--royal-blue-light);
   border-color: var(--royal-blue);
+  color: var(--royal-blue-dark);
 }
 
-.navbar-menu-button:focus-visible,
-.navbar-links a:focus-visible,
-.navbar-mobile-links a:focus-visible,
-.navbar-brand:focus-visible {
+.navbar-menu-button:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 3px;
 }
@@ -165,108 +151,122 @@
 ========================================================= */
 
 .navbar-mobile-links {
-  position: absolute;
-  top: calc(100% + 1px);
-  left: 0;
-  right: 0;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-top: none;
-  box-shadow: var(--shadow-md);
-}
-
-.navbar-mobile-links a,
-.navbar-mobile-links .navbar-link {
-  display: block;
-  padding: 13px 14px;
-  border-radius: var(--radius-sm);
-  color: var(--text-dark);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-.navbar-mobile-links a:hover,
-.navbar-mobile-links .navbar-link:hover {
-  color: var(--royal-blue);
-  background: var(--royal-blue-light);
-}
-
-.navbar-mobile-links .navbar-link.active {
-  color: var(--royal-blue);
-  background: var(--royal-blue-light);
-  border-left: 3px solid var(--gold);
+  display: none;
 }
 
 /* =========================================================
    TABLET / MOBILE
 ========================================================= */
 
-@media (max-width: 850px) {
-  .navbar-links {
-    display: none;
-  }
-
-  .navbar-menu-button {
-    display: flex;
-  }
-
+@media (max-width: 900px) {
   .navbar-inner {
     min-height: 72px;
   }
 
   .navbar-logo-image {
-    width: 52px;
     height: 52px;
   }
 
-  .navbar-school-name span {
-    font-size: 16px;
+  .navbar-menu-button {
+    display: inline-flex;
+    flex-shrink: 0;
   }
 
-  .navbar-school-name small {
-    font-size: 10px;
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-mobile-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    padding: 14px 18px 18px;
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .navbar-mobile-links a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 14px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    color: var(--royal-blue);
+    background: transparent;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .navbar-mobile-links a:hover {
+    background: var(--royal-blue-light);
+    color: var(--royal-blue-dark);
+  }
+
+  .navbar-mobile-links a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
   }
 }
 
 /* =========================================================
-   SMALL PHONES
+   SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 480px) {
   .navbar-inner {
     min-height: 68px;
-    gap: 12px;
-  }
-
-  .navbar-brand {
-    gap: 8px;
   }
 
   .navbar-logo-image {
-    width: 46px;
-    height: 46px;
+    height: 48px;
   }
 
   .navbar-school-name span {
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 
   .navbar-school-name small {
-    font-size: 8px;
-    letter-spacing: 0.7px;
+    font-size: 0.65rem;
   }
 
   .navbar-menu-button {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar-mobile-links {
+    padding: 12px 14px 16px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 360px) {
+  .navbar-school-name {
+    display: none;
+  }
+
+  .navbar-logo-image {
+    height: 46px;
   }
 }
 
@@ -276,12 +276,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .navbar-links a,
-  .navbar-links .navbar-link,
-  .navbar-links a::after,
-  .navbar-links .navbar-link::after,
-  .navbar-menu-button,
   .navbar-mobile-links a,
-  .navbar-mobile-links .navbar-link {
+  .navbar-menu-button,
+  .navbar-brand {
     transition: none;
   }
 }
