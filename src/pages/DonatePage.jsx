@@ -20,6 +20,11 @@ import "./DonatePage.css";
 const MPESA_API_URL =
   "https://archives-of-dreams-mpesa.onrender.com";
 
+const wait = (milliseconds) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, milliseconds);
+  });
+
 function DonatePage() {
   const [amount, setAmount] = useState("");
   const [phone, setPhone] = useState("");
@@ -93,6 +98,70 @@ function DonatePage() {
     },
   ];
 
+  const checkPaymentStatus = async (checkoutRequestID) => {
+    const maxAttempts = 30;
+    const interval = 2000;
+
+    for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+      try {
+        const response = await fetch(
+          `${MPESA_API_URL}/api/mpesa/status/${encodeURIComponent(
+            checkoutRequestID
+          )}`
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          const payment = data?.data;
+
+          if (payment?.status === "success") {
+            const receiptMessage = payment.receiptNumber
+              ? ` M-PESA receipt: ${payment.receiptNumber}.`
+              : "";
+
+            setIsSuccess(true);
+            setFormMessage(
+              `Donation payment completed successfully.${receiptMessage}`
+            );
+            return;
+          }
+
+          if (payment?.status === "failed") {
+            setIsSuccess(false);
+
+            if (payment.resultCode === 1037) {
+              setFormMessage(
+                "The M-PESA prompt received no response from the user. No donation was completed."
+              );
+            } else if (payment.resultCode === 1032) {
+              setFormMessage(
+                "The M-PESA payment was cancelled. No donation was completed."
+              );
+            } else {
+              setFormMessage(
+                payment.resultDescription ||
+                  "The M-PESA payment was not completed."
+              );
+            }
+
+            return;
+          }
+        }
+      } catch (error) {
+        console.error("Payment status check error:", error);
+      }
+
+      if (attempt < maxAttempts - 1) {
+        await wait(interval);
+      }
+    }
+
+    setIsSuccess(false);
+    setFormMessage(
+      "The M-PESA prompt was sent, but we could not confirm the final payment status yet. Please check your M-PESA messages before trying again."
+    );
+  };
+
   const handleDonationSubmit = async (event) => {
     event.preventDefault();
 
@@ -140,13 +209,24 @@ function DonatePage() {
         );
       }
 
-      setIsSuccess(true);
+      const checkoutRequestID =
+        data?.data?.checkoutRequestID;
+
+      if (!checkoutRequestID) {
+        throw new Error(
+          "M-PESA started the payment request, but no transaction reference was returned."
+        );
+      }
+
       setFormMessage(
         "M-PESA payment prompt sent. Please check your phone and enter your M-PESA PIN to complete the donation."
       );
+
+      await checkPaymentStatus(checkoutRequestID);
     } catch (error) {
       console.error("Donation payment error:", error);
 
+      setIsSuccess(false);
       setFormMessage(
         error.message ||
           "Unable to start the M-PESA payment. Please try again."
@@ -164,16 +244,20 @@ function DonatePage() {
       >
         <div className="container">
           <div className="donate-hero-content">
-            <span className="section-label">SUPPORT THE CHILDREN</span>
+            <span className="section-label">
+              SUPPORT THE CHILDREN
+            </span>
 
             <h1 id="donate-page-heading">
-              Give a child the <span>opportunity to dream.</span>
+              Give a child the{" "}
+              <span>opportunity to dream.</span>
             </h1>
 
             <p>
-              Your support helps Archives of Dreams Education Center provide
-              children with education, care, learning materials, food, and
-              other essential resources they need to learn, grow, and pursue
+              Your support helps Archives of Dreams Education
+              Center provide children with education, care,
+              learning materials, food, and other essential
+              resources they need to learn, grow, and pursue
               their dreams.
             </p>
 
@@ -182,7 +266,10 @@ function DonatePage() {
               className="donate-primary-button"
             >
               Make a Donation
-              <ArrowRight size={18} aria-hidden="true" />
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
             </a>
           </div>
         </div>
@@ -196,32 +283,51 @@ function DonatePage() {
         <div className="container">
           <div className="donate-payment-grid">
             <div className="donate-payment-intro">
-              <span className="section-label">HOW TO GIVE</span>
+              <span className="section-label">
+                HOW TO GIVE
+              </span>
 
               <h2 id="payment-heading">
-                Support the children <span>through M-PESA.</span>
+                Support the children{" "}
+                <span>through M-PESA.</span>
               </h2>
 
               <p>
-                Make a direct contribution to Archives of Dreams Education
-                Center. Enter any amount you would like to give and the
-                M-PESA number that should receive the payment prompt.
+                Make a direct contribution to Archives of Dreams
+                Education Center. Enter any amount you would
+                like to give and the M-PESA number that should
+                receive the payment prompt.
               </p>
 
               <div className="donate-trust-points">
                 <div>
-                  <CheckCircle2 size={19} aria-hidden="true" />
-                  <span>Simple and secure donation process</span>
+                  <CheckCircle2
+                    size={19}
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Simple and secure donation process
+                  </span>
                 </div>
 
                 <div>
-                  <CheckCircle2 size={19} aria-hidden="true" />
-                  <span>Give any amount you choose</span>
+                  <CheckCircle2
+                    size={19}
+                    aria-hidden="true"
+                  />
+                  <span>
+                    Give any amount you choose
+                  </span>
                 </div>
 
                 <div>
-                  <CheckCircle2 size={19} aria-hidden="true" />
-                  <span>M-PESA payment confirmation</span>
+                  <CheckCircle2
+                    size={19}
+                    aria-hidden="true"
+                  />
+                  <span>
+                    M-PESA payment confirmation
+                  </span>
                 </div>
               </div>
             </div>
@@ -236,7 +342,10 @@ function DonatePage() {
                 </div>
 
                 <div>
-                  <span className="mpesa-label">M-PESA</span>
+                  <span className="mpesa-label">
+                    M-PESA
+                  </span>
+
                   <h3>Make a Donation</h3>
                 </div>
               </div>
@@ -299,8 +408,8 @@ function DonatePage() {
                   />
 
                   <small>
-                    Enter the Kenyan M-PESA number that should receive
-                    the payment prompt.
+                    Enter the Kenyan M-PESA number that should
+                    receive the payment prompt.
                   </small>
                 </div>
 
@@ -311,7 +420,7 @@ function DonatePage() {
                   aria-busy={isSubmitting}
                 >
                   {isSubmitting
-                    ? "Sending M-PESA Prompt..."
+                    ? "Processing M-PESA Payment..."
                     : "Continue with M-PESA"}
 
                   {!isSubmitting && (
@@ -325,7 +434,9 @@ function DonatePage() {
                 {formMessage && (
                   <div
                     className={`donation-form-message${
-                      isSuccess ? " donation-form-message-success" : ""
+                      isSuccess
+                        ? " donation-form-message-success"
+                        : ""
                     }`}
                     role="status"
                     aria-live="polite"
@@ -363,20 +474,30 @@ function DonatePage() {
                   <strong>How to donate manually</strong>
 
                   <ol>
-                    <li>Open M-PESA on your phone.</li>
-                    <li>Select Lipa na M-PESA.</li>
-                    <li>Select PayBill.</li>
                     <li>
-                      Enter <strong>247247</strong> as the Business
-                      Number.
+                      Open M-PESA on your phone.
                     </li>
+
                     <li>
-                      Enter <strong>0320185552726</strong> as the
+                      Select Lipa na M-PESA.
+                    </li>
+
+                    <li>Select PayBill.</li>
+
+                    <li>
+                      Enter <strong>247247</strong> as the
+                      Business Number.
+                    </li>
+
+                    <li>
+                      Enter{" "}
+                      <strong>0320185552726</strong> as the
                       Account Number.
                     </li>
+
                     <li>
-                      Enter the amount you wish to contribute and
-                      confirm.
+                      Enter the amount you wish to contribute
+                      and confirm.
                     </li>
                   </ol>
                 </div>
@@ -392,16 +513,19 @@ function DonatePage() {
       >
         <div className="container">
           <div className="donate-section-heading">
-            <span className="section-label">CURRENT PRIORITIES</span>
+            <span className="section-label">
+              CURRENT PRIORITIES
+            </span>
 
             <h2 id="urgent-support-heading">
-              Help meet the school's <span>urgent needs.</span>
+              Help meet the school's{" "}
+              <span>urgent needs.</span>
             </h2>
 
             <p>
-              The school has identified several important areas where
-              support can help keep learning going and meet the basic
-              needs of children.
+              The school has identified several important areas
+              where support can help keep learning going and
+              meet the basic needs of children.
             </p>
           </div>
 
@@ -436,15 +560,19 @@ function DonatePage() {
       >
         <div className="container">
           <div className="donate-section-heading">
-            <span className="section-label">WAYS TO HELP</span>
+            <span className="section-label">
+              WAYS TO HELP
+            </span>
 
             <h2 id="support-heading">
-              Your support can meet <span>real needs.</span>
+              Your support can meet{" "}
+              <span>real needs.</span>
             </h2>
 
             <p>
-              Contributions can help provide children with the resources
-              they need throughout their learning journey.
+              Contributions can help provide children with the
+              resources they need throughout their learning
+              journey.
             </p>
           </div>
 
@@ -487,7 +615,9 @@ function DonatePage() {
             </div>
 
             <div className="donate-cta-content">
-              <span className="section-label">MAKE A DIFFERENCE</span>
+              <span className="section-label">
+                MAKE A DIFFERENCE
+              </span>
 
               <h2 id="donate-cta-heading">
                 Every contribution can help{" "}
@@ -495,8 +625,8 @@ function DonatePage() {
               </h2>
 
               <p>
-                Thank you for standing with Archives of Dreams Education
-                Center and the children we serve.
+                Thank you for standing with Archives of Dreams
+                Education Center and the children we serve.
               </p>
             </div>
 
@@ -505,7 +635,10 @@ function DonatePage() {
               className="donate-secondary-button"
             >
               Donate Now
-              <ArrowRight size={18} aria-hidden="true" />
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+              />
             </a>
           </div>
         </div>
