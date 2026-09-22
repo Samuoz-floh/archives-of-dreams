@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Programs from "./components/Programs";
+import SchoolGallery from "./components/SchoolGallery";
 import Donation from "./components/Donation";
 import Contact from "./components/Contact";
 
@@ -72,6 +73,10 @@ function Home() {
       <Hero />
       <About />
       <Programs />
+
+      {/* SCHOOL GALLERY */}
+      <SchoolGallery />
+
       <Donation />
       <Contact />
     </main>

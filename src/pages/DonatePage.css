@@ -1,4 +1,3 @@
-css
 /* =========================================================
    DONATE PAGE
    Archives of Dreams Education Center
@@ -55,6 +54,10 @@ css
   line-height: 1.85;
 }
 
+/* =========================================================
+   SHARED BUTTONS
+========================================================= */
+
 .donate-primary-button,
 .donate-secondary-button {
   display: inline-flex;
@@ -66,6 +69,7 @@ css
   border-radius: 10px;
   font-weight: 800;
   text-decoration: none;
+  cursor: pointer;
   transition:
     transform 0.2s ease,
     background 0.2s ease,
@@ -84,7 +88,9 @@ css
 }
 
 .donate-primary-button:active,
-.donate-secondary-button:active {
+.donate-secondary-button:active,
+.donate-mpesa-button:active,
+.donation-amount-button:active {
   transform: translateY(0);
 }
 
@@ -101,12 +107,13 @@ css
 .donate-payment-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  align-items: center;
+  align-items: start;
   gap: 70px;
 }
 
 .donate-payment-intro {
   min-width: 0;
+  padding-top: 20px;
 }
 
 .donate-payment-intro .section-label,
@@ -141,12 +148,37 @@ css
 }
 
 /* =========================================================
+   TRUST POINTS
+========================================================= */
+
+.donate-trust-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.donate-trust-points > div {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--royal-blue-dark);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.donate-trust-points svg {
+  flex: 0 0 auto;
+  color: var(--gold-dark);
+}
+
+/* =========================================================
    M-PESA CARD
 ========================================================= */
 
 .mpesa-card {
   width: 100%;
   min-width: 0;
+  box-sizing: border-box;
   padding: 34px;
   border: 1px solid rgba(18, 60, 136, 0.1);
   border-radius: var(--radius-lg);
@@ -181,7 +213,7 @@ css
 
 .mpesa-label {
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   color: var(--gold-light);
   font-size: 0.72rem;
   font-weight: 800;
@@ -190,9 +222,216 @@ css
 
 .mpesa-card-header h3 {
   color: var(--white);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   line-height: 1.3;
   overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   DONATION FORM
+========================================================= */
+
+.donation-form {
+  display: grid;
+  gap: 22px;
+  padding: 25px 0 28px;
+}
+
+.donation-amount-field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.donation-amount-field legend {
+  margin-bottom: 12px;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.donation-amount-options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.donation-amount-button {
+  min-width: 0;
+  min-height: 46px;
+  padding: 8px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.donation-amount-button:hover {
+  border-color: var(--gold);
+  background: rgba(212, 167, 44, 0.12);
+}
+
+.donation-amount-button.active {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--royal-blue-dark);
+}
+
+.donation-form-group {
+  display: grid;
+  gap: 9px;
+}
+
+.donation-form-group label {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.donation-form-group input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font: inherit;
+  font-size: 0.95rem;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.donation-form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.donation-form-group input:focus {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 167, 44, 0.16);
+}
+
+.donation-form-group small {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.donation-input-wrapper {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.donation-input-wrapper:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 167, 44, 0.16);
+}
+
+.donation-input-wrapper > span {
+  flex: 0 0 auto;
+  padding-left: 15px;
+  color: var(--gold-light);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.donation-input-wrapper input {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.donation-input-wrapper input:focus {
+  box-shadow: none;
+}
+
+.donation-form input[type="number"]::-webkit-inner-spin-button,
+.donation-form input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.donation-form input[type="number"] {
+  appearance: textfield;
+}
+
+.donate-mpesa-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 54px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--gold);
+  color: var(--royal-blue-dark);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.donate-mpesa-button:hover {
+  transform: translateY(-2px);
+  background: var(--gold-light);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.donation-form-message {
+  padding: 13px 15px;
+  border: 1px solid rgba(245, 223, 139, 0.25);
+  border-radius: 9px;
+  background: rgba(245, 223, 139, 0.08);
+  color: var(--gold-light);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   MANUAL M-PESA OPTION
+========================================================= */
+
+.mpesa-manual-option {
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mpesa-manual-header {
+  margin-bottom: 8px;
+}
+
+.mpesa-manual-header h3 {
+  margin-top: 4px;
+  color: var(--white);
+  font-size: 1.08rem;
 }
 
 .payment-detail {
@@ -200,18 +439,18 @@ css
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 20px 0;
+  padding: 18px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .payment-detail span {
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
 }
 
 .payment-detail strong {
   color: var(--gold-light);
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   text-align: right;
   overflow-wrap: anywhere;
 }
@@ -377,7 +616,10 @@ css
 ========================================================= */
 
 .donate-primary-button:focus-visible,
-.donate-secondary-button:focus-visible {
+.donate-secondary-button:focus-visible,
+.donate-mpesa-button:focus-visible,
+.donation-amount-button:focus-visible,
+.donation-form-group input:focus-visible {
   outline: 3px solid var(--gold-light);
   outline-offset: 3px;
 }
@@ -447,9 +689,17 @@ css
     font-size: clamp(2.1rem, 10vw, 3.2rem);
   }
 
+  .donate-trust-points > div {
+    align-items: flex-start;
+  }
+
   .mpesa-card {
     padding: 24px;
     border-radius: var(--radius-md);
+  }
+
+  .donation-amount-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .payment-detail {
@@ -545,6 +795,8 @@ css
 @media (prefers-reduced-motion: reduce) {
   .donate-primary-button,
   .donate-secondary-button,
+  .donate-mpesa-button,
+  .donation-amount-button,
   .donate-support-card {
     transition: none;
   }
