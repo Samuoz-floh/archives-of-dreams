@@ -15,6 +15,8 @@ const MPESA_BASE_URL =
     ? "https://api.safaricom.co.ke"
     : "https://sandbox.safaricom.co.ke";
 
+const paymentStatuses = new Map();
+
 async function getMpesaAccessToken() {
   const consumerKey = process.env.MPESA_CONSUMER_KEY;
   const consumerSecret = process.env.MPESA_CONSUMER_SECRET;
@@ -66,6 +68,22 @@ function formatPhoneNumber(phone) {
   throw new Error(
     "Enter a valid Kenyan M-PESA number, for example 0712345678."
   );
+}
+
+function getPaymentStatusMessage(resultCode) {
+  if (resultCode === 0) {
+    return "Payment completed successfully.";
+  }
+
+  if (resultCode === 1037) {
+    return "The M-PESA payment prompt received no response from the user.";
+  }
+
+  if (resultCode === 1032) {
+    return "The M-PESA payment was cancelled by the user.";
+  }
+
+  return "The M-PESA payment was not completed.";
 }
 
 app.get("/api/health", (req, res) => {
@@ -148,13 +166,32 @@ app.post("/api/mpesa/stkpush", async (req, res) => {
       }
     );
 
+    const merchantRequestID = response.data.MerchantRequestID;
+    const checkoutRequestID = response.data.CheckoutRequestID;
+
+    paymentStatuses.set(checkoutRequestID, {
+      checkoutRequestID,
+      merchantRequestID,
+      status: "pending",
+      resultCode: null,
+      resultDescription: null,
+      amount: finalAmount,
+      phoneNumber: formattedPhone,
+      receiptNumber: null,
+      transactionDate: null,
+      phoneNumberUsed: formattedPhone,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    });
+
     return res.json({
       success: true,
       message: "M-PESA payment prompt request has been sent.",
       data: {
-        merchantRequestID: response.data.MerchantRequestID,
-        checkoutRequestID: response.data.CheckoutRequestID,
+        merchantRequestID,
+        checkoutRequestID,
         responseDescription: response.data.ResponseDescription,
+        status: "pending",
       },
     });
   } catch (error) {
@@ -174,16 +211,117 @@ app.post("/api/mpesa/stkpush", async (req, res) => {
   }
 });
 
-app.post("/api/mpesa/callback", (req, res) => {
-  console.log(
-    "M-PESA Callback Received:",
-    JSON.stringify(req.body, null, 2)
-  );
+app.get("/api/mpesa/status/:checkoutRequestID", (req, res) => {
+  const { checkoutRequestID } = req.params;
 
-  res.json({
-    ResultCode: 0,
-    ResultDesc: "Callback received successfully.",
+  const payment = paymentStatuses.get(checkoutRequestID);
+
+  if (!payment) {
+    return res.status(404).json({
+      success: false,
+      message: "Payment transaction was not found.",
+    });
+  }
+
+  return res.json({
+    success: true,
+    data: payment,
   });
+});
+
+app.post("/api/mpesa/callback", (req, res) => {
+  try {
+    console.log(
+      "M-PESA Callback Received:",
+      JSON.stringify(req.body, null, 2)
+    );
+
+    const callback =
+      req.body?.Body?.stkCallback;
+
+    if (!callback) {
+      return res.json({
+        ResultCode: 0,
+        ResultDesc: "Callback received successfully.",
+      });
+    }
+
+    const checkoutRequestID = callback.CheckoutRequestID;
+    const merchantRequestID = callback.MerchantRequestID;
+    const resultCode = Number(callback.ResultCode);
+    const resultDescription =
+      callback.ResultDesc || "M-PESA payment result received.";
+
+    const existingPayment =
+      paymentStatuses.get(checkoutRequestID);
+
+    const callbackMetadata =
+      callback.CallbackMetadata?.Item || [];
+
+    const metadata = {};
+
+    callbackMetadata.forEach((item) => {
+      if (item?.Name) {
+        metadata[item.Name] = item.Value ?? null;
+      }
+    });
+
+    const successfulPayment = resultCode === 0;
+
+    const updatedPayment = {
+      ...(existingPayment || {}),
+      checkoutRequestID,
+      merchantRequestID,
+      status: successfulPayment ? "success" : "failed",
+      resultCode,
+      resultDescription,
+      receiptNumber:
+        metadata.MpesaReceiptNumber || null,
+      transactionDate:
+        metadata.TransactionDate || null,
+      phoneNumberUsed:
+        metadata.PhoneNumber || existingPayment?.phoneNumber || null,
+      amount:
+        metadata.Amount ??
+        existingPayment?.amount ??
+        null,
+      updatedAt: new Date().toISOString(),
+    };
+
+    paymentStatuses.set(
+      checkoutRequestID,
+      updatedPayment
+    );
+
+    console.log(
+      "M-PESA Payment Status:",
+      JSON.stringify(
+        {
+          checkoutRequestID,
+          status: updatedPayment.status,
+          resultCode,
+          message: getPaymentStatusMessage(resultCode),
+        },
+        null,
+        2
+      )
+    );
+
+    return res.json({
+      ResultCode: 0,
+      ResultDesc: "Callback received successfully.",
+    });
+  } catch (error) {
+    console.error(
+      "M-PESA Callback Error:",
+      error.message
+    );
+
+    return res.json({
+      ResultCode: 0,
+      ResultDesc: "Callback received.",
+    });
+  }
 });
 
 app.listen(PORT, "0.0.0.0", () => {
