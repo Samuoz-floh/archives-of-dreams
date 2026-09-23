@@ -102,7 +102,11 @@ function DonatePage() {
     const maxAttempts = 30;
     const interval = 2000;
 
-    for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    for (
+      let attempt = 0;
+      attempt < maxAttempts;
+      attempt += 1
+    ) {
       try {
         const response = await fetch(
           `${MPESA_API_URL}/api/mpesa/status/${encodeURIComponent(
@@ -176,9 +180,9 @@ function DonatePage() {
       return;
     }
 
-    if (!/^(\+254|254|0)7\d{8}$/.test(cleanPhone)) {
+    if (!/^(\+254|254|0)[17]\d{8}$/.test(cleanPhone)) {
       setFormMessage(
-        "Please enter a valid Kenyan M-PESA phone number, for example 0712345678."
+        "Please enter a valid Kenyan M-PESA phone number, for example 0712345678 or 0112345678."
       );
       return;
     }
@@ -397,7 +401,7 @@ function DonatePage() {
                     type="tel"
                     inputMode="tel"
                     autoComplete="tel"
-                    placeholder="0712 345 678"
+                    placeholder="0712 345 678 or 0112 345 678"
                     value={phone}
                     onChange={(event) => {
                       setPhone(event.target.value);
@@ -482,7 +486,9 @@ function DonatePage() {
                       Select Lipa na M-PESA.
                     </li>
 
-                    <li>Select PayBill.</li>
+                    <li>
+                      Select PayBill.
+                    </li>
 
                     <li>
                       Enter <strong>247247</strong> as the
