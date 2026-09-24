@@ -405,6 +405,13 @@
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
 }
 
+.donate-mpesa-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .donation-form-message {
   padding: 13px 15px;
   border: 1px solid rgba(245, 223, 139, 0.25);
@@ -413,6 +420,11 @@
   color: var(--gold-light);
   font-size: 0.82rem;
   line-height: 1.6;
+}
+
+.donation-form-message-success {
+  border-color: rgba(245, 223, 139, 0.45);
+  background: rgba(245, 223, 139, 0.12);
 }
 
 /* =========================================================
@@ -480,6 +492,75 @@
 
 .mpesa-instructions li::marker {
   color: var(--gold-light);
+}
+
+/* =========================================================
+   OFFICIAL BANK DONATION DETAILS
+========================================================= */
+
+.donate-bank-section {
+  width: 100%;
+  padding: 100px 0;
+  background: var(--off-white);
+}
+
+.donate-bank-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 34px;
+  border: 1px solid rgba(18, 60, 136, 0.09);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: 0 18px 45px rgba(9, 40, 95, 0.08);
+}
+
+.donate-bank-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 22px;
+}
+
+.donate-bank-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(18, 60, 136, 0.09);
+}
+
+.donate-bank-detail:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.donate-bank-detail span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.donate-bank-detail strong,
+.donate-bank-detail a {
+  color: var(--royal-blue-dark);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.donate-bank-detail a {
+  color: var(--royal-blue);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+.donate-bank-detail a:hover {
+  color: var(--gold-dark);
+  text-decoration: underline;
 }
 
 /* =========================================================
@@ -619,7 +700,8 @@
 .donate-secondary-button:focus-visible,
 .donate-mpesa-button:focus-visible,
 .donation-amount-button:focus-visible,
-.donation-form-group input:focus-visible {
+.donation-form-group input:focus-visible,
+.donate-bank-detail a:focus-visible {
   outline: 3px solid var(--gold-light);
   outline-offset: 3px;
 }
@@ -639,6 +721,10 @@
   }
 
   .mpesa-card {
+    max-width: 760px;
+  }
+
+  .donate-bank-card {
     max-width: 760px;
   }
 
@@ -679,6 +765,7 @@
   }
 
   .donate-payment-section,
+  .donate-bank-section,
   .donate-support-section {
     padding: 75px 0;
   }
@@ -710,6 +797,24 @@
 
   .payment-detail strong {
     text-align: left;
+  }
+
+  .donate-bank-card {
+    padding: 24px;
+    border-radius: var(--radius-md);
+  }
+
+  .donate-bank-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .donate-bank-detail,
+  .donate-bank-detail:nth-last-child(-n + 2) {
+    border-bottom: 1px solid rgba(18, 60, 136, 0.09);
+  }
+
+  .donate-bank-detail:last-child {
+    border-bottom: 0;
   }
 
   .donate-support-grid {
@@ -761,6 +866,14 @@
     font-size: 1.08rem;
   }
 
+  .donate-bank-card {
+    padding: 20px;
+  }
+
+  .donate-bank-detail {
+    padding: 17px 0;
+  }
+
   .donate-support-card {
     padding: 21px;
   }
@@ -776,6 +889,10 @@
 
 @media (max-width: 340px) {
   .mpesa-card {
+    padding: 17px;
+  }
+
+  .donate-bank-card {
     padding: 17px;
   }
 
@@ -797,7 +914,8 @@
   .donate-secondary-button,
   .donate-mpesa-button,
   .donation-amount-button,
-  .donate-support-card {
+  .donate-support-card,
+  .donate-bank-detail a {
     transition: none;
   }
 }

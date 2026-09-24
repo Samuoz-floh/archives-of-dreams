@@ -127,6 +127,7 @@ function DonatePage() {
             setFormMessage(
               `Donation payment completed successfully.${receiptMessage}`
             );
+
             return;
           }
 
@@ -507,6 +508,82 @@ function DonatePage() {
                     </li>
                   </ol>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          OFFICIAL BANK DONATION DETAILS
+      ===================================================== */}
+
+      <section
+        className="donate-bank-section"
+        aria-labelledby="bank-donation-heading"
+      >
+        <div className="container">
+          <div className="donate-section-heading">
+            <span className="section-label">
+              OFFICIAL DONATION DETAILS
+            </span>
+
+            <h2 id="bank-donation-heading">
+              Support the children{" "}
+              <span>through bank transfer.</span>
+            </h2>
+
+            <p>
+              Banking information supplied by Archives of
+              Dreams Education Center for donors who prefer
+              to make a direct bank contribution.
+            </p>
+          </div>
+
+          <div className="donate-bank-card">
+            <div className="donate-bank-details">
+              <div className="donate-bank-detail">
+                <span>Bank</span>
+                <strong>Equity Bank</strong>
+              </div>
+
+              <div className="donate-bank-detail">
+                <span>Branch</span>
+                <strong>Kariobangi Branch</strong>
+              </div>
+
+              <div className="donate-bank-detail">
+                <span>Location</span>
+                <strong>Nairobi, Kenya</strong>
+              </div>
+
+              <div className="donate-bank-detail">
+                <span>Account Name</span>
+                <strong>ARCHIVES OF DREAMS CBO</strong>
+              </div>
+
+              <div className="donate-bank-detail">
+                <span>SWIFT Code</span>
+                <strong>EGBLKENA</strong>
+              </div>
+
+              <div className="donate-bank-detail">
+                <span>Contact Person</span>
+                <strong>Everlyne Esther Kukah</strong>
+              </div>
+
+              <div className="donate-bank-detail">
+                <span>Phone</span>
+                <a href="tel:+254711329337">
+                  +254 711 329 337
+                </a>
+              </div>
+
+              <div className="donate-bank-detail">
+                <span>Email</span>
+                <a href="mailto:Archivesofdreamske@gmail.com">
+                  Archivesofdreamske@gmail.com
+                </a>
               </div>
             </div>
           </div>
